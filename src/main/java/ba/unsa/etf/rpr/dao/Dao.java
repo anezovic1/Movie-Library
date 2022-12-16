@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.exceptions.MovieException;
+
 import java.util.List;
 
 /**
@@ -14,7 +16,7 @@ public interface Dao<T> {
      * @param id primary key of the entity
      * @return Entity from database
      */
-    T getById(int id);
+    T getById(int id) throws MovieException;
 
     /**
      * save entity into database
