@@ -1,4 +1,10 @@
 package ba.unsa.etf.rpr.dao;
 
-public interface MovieDao {
+import ba.unsa.etf.rpr.domain.Movie;
+
+/**
+ * Dao interface for Movie domain bean
+ * @author anida
+ */
+public interface MovieDao extends Dao<Movie> {
 }
