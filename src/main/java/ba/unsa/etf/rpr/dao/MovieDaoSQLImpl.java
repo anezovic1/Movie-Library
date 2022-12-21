@@ -37,13 +37,13 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
 
     @Override
     public Map<String, Object> object2row(Movie object) {
-        Map<String, Object> item = new TreeMap<>();
-        item.put("id", object.getId());
-        item.put("name", object.getName());
-        item.put("duration", object.getDuration());
-        item.put("rating", object.getRating());
-        item.put("genre", object.getGenre());
-        item.put("synopsis", object.getSynopsis());
-        return item;
+        Map<String, Object> row = new TreeMap<>();
+        row.put("id", object.getId());
+        row.put("name", object.getName());
+        row.put("duration", object.getDuration());
+        row.put("rating", object.getRating());
+        row.put("genre", object.getGenre());
+        row.put("synopsis", object.getSynopsis());
+        return row;
     }
 }
