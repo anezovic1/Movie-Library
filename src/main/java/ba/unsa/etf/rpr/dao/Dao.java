@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Root interface for all DAO classes
- * @author Anida Nezovic
+ * @author anida
  */
 
 public interface Dao<T> {
@@ -24,25 +24,25 @@ public interface Dao<T> {
      * @return saved item
      */
 
-    T add(T item);
+    T add(T item) throws MovieException;
 
     /**
      * update entity that is in database based on its id match
      * @param item item that we want to update
      * @return updated version of the given item
      */
-    T update(T item);
+    T update(T item) throws MovieException;
 
     /**
      * delete item from database with given id
      * @param id primary key of entity
      */
-    void delete(int id);
+    void delete(int id) throws MovieException;
 
     /**
      * list all entities from database
      * @return list of all entities from database
      */
-    List<T> getAll();
+    List<T> getAll() throws MovieException;
 
 }
