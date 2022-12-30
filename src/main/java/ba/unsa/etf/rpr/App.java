@@ -14,7 +14,9 @@ public class App extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
         primaryStage.setTitle("Hello, World!");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        primaryStage.setResizable(false);
+        //primaryStage.setResizable(false);
+        primaryStage.setMinHeight(490);
+        primaryStage.setMinWidth(740);
         primaryStage.show();
     }
     public static void main(String[] args) {
