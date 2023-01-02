@@ -1,0 +1,19 @@
+#idGridPane {
+    -fx-background-color: #032541;
+}
+
+#cancelBtn {
+ -fx-background-color: #032541;
+}
+
+#signupBtn {
+ -fx-background-color: #033055;
+}
+
+#cancelBtn:hover {
+ -fx-background-color: #033055;
+}
+
+#idBenefitsBtn {
+    -fx-background-color: #01b4e4;
+}
