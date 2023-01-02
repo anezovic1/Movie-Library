@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,27 +16,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="740.0"
-          xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="ba.unsa.etf.rpr.controllers.LogInController">
+<GridPane fx:id="idGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LogInController">
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
     <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.20001220703125" minWidth="10.0" prefWidth="333.59996337890624" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.20001220703125" minWidth="10.0" prefWidth="406.40003662109376" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="171.3999984741211" minHeight="10.0" prefHeight="76.60000610351562" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="278.1999938964844" minHeight="10.0" prefHeight="208.00001220703126" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="148.4000305175781" minHeight="10.0" prefHeight="70.39998779296877" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="150.8" minHeight="10.0" prefHeight="150.8" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="178.3999755859375" minHeight="10.0" prefHeight="169.60001220703126" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="278.1999938964844" minHeight="10.0" prefHeight="117.59998779296873" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="203.99998779296874" minHeight="10.0" prefHeight="203.99998779296874" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="138.0" prefWidth="499.0" GridPane.rowIndex="1">
+      <HBox alignment="TOP_CENTER" prefHeight="138.0" prefWidth="499.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Username:">
+                  <Label text="Username:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -43,7 +42,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Password:">
+                  <Label text="Password:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -75,31 +74,40 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </HBox>
-      <ButtonBar prefHeight="68.0" prefWidth="682.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="189.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
         <buttons>
-          <Button alignment="TOP_CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
-            <Button alignment="TOP_CENTER" cancelButton="true" mnemonicParsing="false" text="Cancel" />
+          <Button fx:id="loginBtn" alignment="TOP_CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="cancelBtn" alignment="TOP_CENTER" cancelButton="true" mnemonicParsing="false" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
         </buttons>
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="70.0" top="5.0" />
          </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </ButtonBar>
-      <HBox prefHeight="69.0" prefWidth="740.0">
+      <HBox prefHeight="69.0" prefWidth="740.0" GridPane.columnIndex="1">
          <children>
-            <Label alignment="CENTER" prefHeight="64.0" prefWidth="740.0" text="Login to your account">
+            <Label alignment="CENTER" prefHeight="175.0" prefWidth="407.0" text="Login to your account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="120.0" />
                </padding>
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </HBox>
+      <ImageView fitHeight="497.0" fitWidth="333.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="4">
+         <image>
+            <Image url="@../img/cinema_seats_2.jpg" />
+         </image>
+      </ImageView>
    </children>
 </GridPane>
