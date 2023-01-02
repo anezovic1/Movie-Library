@@ -13,12 +13,19 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class HomeController {
 
-
-
     public void loginButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        stage.setTitle("Hello, World!");
+        stage.setTitle("Log in");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void signUpButtonClick(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
+        stage.setTitle("Sign up");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
