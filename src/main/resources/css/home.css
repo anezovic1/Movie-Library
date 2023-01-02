@@ -17,3 +17,8 @@
 #searchBtn {
     -fx-background-color: linear-gradient(from 5px 5px to 50px 50px, #77f0cc, #56e3f4);
 }
+
+#idSearchItem {
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}

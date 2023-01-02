@@ -20,6 +20,7 @@ public class HomeController {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Hello, World!");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
         stage.show();
     }
 }
