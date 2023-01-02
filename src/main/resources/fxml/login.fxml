@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="idGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LogInController">
+<GridPane fx:id="idGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LogInController">
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
@@ -28,6 +28,7 @@
     <RowConstraints maxHeight="178.3999755859375" minHeight="10.0" prefHeight="169.60001220703126" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="278.1999938964844" minHeight="10.0" prefHeight="117.59998779296873" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="203.99998779296874" minHeight="10.0" prefHeight="203.99998779296874" vgrow="SOMETIMES" />
+      <RowConstraints />
   </rowConstraints>
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="138.0" prefWidth="499.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
