@@ -15,10 +15,23 @@ import java.util.TreeMap;
  */
 public class WatchlistDaoSQLImpl extends AbstractDao<Watchlist> implements WatchlistDao {
 
+    private static WatchlistDaoSQLImpl instance = null;
     public WatchlistDaoSQLImpl() {
         super("watchlists");
     }
 
+    public static WatchlistDaoSQLImpl getInstance() {
+        if(instance == null) {
+            instance = new WatchlistDaoSQLImpl();
+        }
+        return instance;
+    }
+
+    public static void removeInstance() {
+        if(instance != null) {
+            instance = null;
+        }
+    }
     @Override
     public Watchlist row2object(ResultSet rs) throws MovieException {
         try {
