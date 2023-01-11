@@ -15,10 +15,17 @@ import java.util.TreeMap;
  */
 public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
 
+    private static MovieDaoSQLImpl instance = null;
     public MovieDaoSQLImpl() {
         super("movies");
     }
 
+    public static MovieDaoSQLImpl getInstance() {
+        if(instance == null) {
+            instance = new MovieDaoSQLImpl();
+        }
+        return instance;
+    }
     @Override
     public Movie row2object(ResultSet rs) throws MovieException {
         try {
@@ -45,5 +52,11 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
         row.put("genre", object.getGenre());
         row.put("synopsis", object.getSynopsis());
         return row;
+    }
+
+    @Override
+    public List<Movie> searchByText(String text) throws MovieException {
+        return null;
+        //return executeQuery("SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')", new Object[]{text});
     }
 }
