@@ -15,8 +15,8 @@ public class App extends Application {
         primaryStage.setTitle("Hello, World!");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setResizable(false);
-        primaryStage.setMinHeight(490);
-        primaryStage.setMinWidth(740);
+        //primaryStage.setMinHeight(490);
+        //primaryStage.setMinWidth(740);
         primaryStage.show();
     }
     public static void main(String[] args) {
