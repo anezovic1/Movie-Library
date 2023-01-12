@@ -54,6 +54,6 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
 
     @Override
     public List<Movie> searchByText(String text) throws MovieException {
-        return executeQuery("SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')", new Object[]{text});
+        return executeQuery("SELECT * FROM movies WHERE name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 }
