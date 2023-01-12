@@ -70,4 +70,7 @@ public class HomeController {
         stage.setResizable(false);
         stage.show();
     }
+
+    public void moviesBtnClick(ActionEvent actionEvent) {
+    }
 }
