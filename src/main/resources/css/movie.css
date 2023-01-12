@@ -9,3 +9,7 @@
 #moviesBtn:hover, #loginBtn:hover, #signupBtn:hover, #aboutBtn:hover {
  -fx-background-color: #033055;
 }
+
+#moviesTable, #idBorderPane {
+    -fx-background-color: #033055;
+}
