@@ -12,65 +12,58 @@ import java.util.*;
  * @author anida
  */
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
-    private Connection connecetion;
+    private static Connection connection;
     private String tableName;
 
     public AbstractDao(String tableName) {
-        try {
-            this.tableName = tableName;
-            Properties p = new Properties();
-            p.load(ClassLoader.getSystemResource("application.properties").openStream());
-            this.connecetion = DriverManager.getConnection(p.getProperty("db.connection_string"), p.getProperty("db.username"), p.getProperty("db.password"));
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        this.tableName = tableName;
+        createConnection();
     }
 
-    public Connection getConnecetion() {
-        return connecetion;
+    private static void createConnection() {
+        if(AbstractDao.connection == null) {
+            try {
+                Properties properties = new Properties();
+                properties.load(ClassLoader.getSystemResource("application.properties").openStream());
+                String url = properties.getProperty("db.connevtion_string");
+                String username = properties.getProperty("db.username");
+                String password = properties.getProperty("db.password");
+                AbstractDao.connection = DriverManager.getConnection(url, username, password);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+            }
+            finally {
+                Runtime.getRuntime().addShutdownHook(new Thread(){
+                    @Override
+                    public void run(){
+                        try {
+                            connection.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        }
+    }
+    public static Connection getConnecetion() {
+        return AbstractDao.connection;
     }
 
     public abstract T row2object(ResultSet rs) throws MovieException;
     public abstract Map<String, Object> object2row(T object);
     public T getById(int id) throws MovieException {
-        String query = "SELECT * FROM " + this.tableName + " WHERE id = ?";
-
-        try {
-            PreparedStatement stmt = this.connecetion.prepareStatement(query);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
-                T result = row2object(rs);
-                rs.close();
-                return result;
-            }
-            else {
-                throw new MovieException("Object not found");
-            }
-        } catch (SQLException e) {
-            throw new MovieException(e.getMessage(), e);
-        }
+        return executeQueryUnique("SELECT * FROM " + this.tableName + " WHERE id = ?", new Object[]{id});
     }
 
     public List<T> getAll() throws MovieException {
-        String query = "SELECT * FROM " + this.tableName;
-        List<T> objects = new ArrayList<>();
-        try {
-            PreparedStatement stmt = getConnecetion().prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while(rs.next()) {
-                T object = row2object(rs);
-                objects.add(object);
-            }
-            rs.close();
-            return objects;
-        } catch (SQLException e) {
-            throw new MovieException(e.getMessage(), e);
-        }
+        return executeQuery("SELECT * FROM "+ tableName, null);
+
     }
 
     public void delete(int id) throws MovieException {
-        String query = "DELETE FROM " + this.tableName + "WHERE id = ?";
+        String query = "DELETE FROM " + tableName + "WHERE id = ?";
         try {
             PreparedStatement stmt = getConnecetion().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setObject(1, id);
@@ -174,6 +167,36 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             return item;
         } catch(SQLException e) {
             throw new MovieException(e.getMessage(), e);
+        }
+    }
+
+    public List<T> executeQuery(String query, Object[] params) throws MovieException {
+        try {
+            PreparedStatement stmt = getConnecetion().prepareStatement(query);
+            if(params != null) {
+                for(int i = 1; i <= params.length; i++) {
+                    stmt.setObject(i, params[i - 1]);
+                }
+            }
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<T> resultList = new ArrayList<>();
+            while(rs.next()) {
+                resultList.add(row2object(rs));
+            }
+            return resultList;
+        }
+        catch(SQLException e) {
+            throw new MovieException(e.getMessage(), e);
+        }
+    }
+
+    public T executeQueryUnique(String query, Object[] params) throws MovieException {
+        List<T> result = executeQuery(query, params);
+        if(result != null && result.size() == 1) {
+            return result.get(0);
+        }
+        else {
+            throw new MovieException("Object not found!");
         }
     }
 }
