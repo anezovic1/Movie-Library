@@ -11,7 +11,6 @@ public class Movie implements Idable {
     private String name;
     private String genre;
     private String duration;
-    private String synopsis;
     private double rating;
 
     public int getId() {
@@ -46,14 +45,6 @@ public class Movie implements Idable {
         this.duration = duration;
     }
 
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
     public double getRating() {
         return rating;
     }
@@ -69,7 +60,6 @@ public class Movie implements Idable {
                 ", name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", duration='" + duration + '\'' +
-                ", synopsis='" + synopsis + '\'' +
                 ", rating=" + rating +
                 '}';
     }
@@ -79,11 +69,11 @@ public class Movie implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return id == movie.id && Double.compare(movie.rating, rating) == 0 && Objects.equals(name, movie.name) && Objects.equals(genre, movie.genre) && Objects.equals(duration, movie.duration) && Objects.equals(synopsis, movie.synopsis);
+        return id == movie.id && Double.compare(movie.rating, rating) == 0 && Objects.equals(name, movie.name) && Objects.equals(genre, movie.genre) && Objects.equals(duration, movie.duration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, genre, duration, synopsis, rating);
+        return Objects.hash(id, name, genre, duration, rating);
     }
 }

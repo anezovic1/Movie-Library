@@ -35,7 +35,6 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
             movie.setDuration(rs.getString("duration"));
             movie.setGenre(rs.getString("genre"));
             movie.setRating(rs.getDouble("rating"));
-            movie.setSynopsis(rs.getString("synopsis"));
             return movie;
         } catch(SQLException e) {
             throw new MovieException(e.getMessage(), e);
@@ -50,7 +49,6 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
         row.put("duration", object.getDuration());
         row.put("rating", object.getRating());
         row.put("genre", object.getGenre());
-        row.put("synopsis", object.getSynopsis());
         return row;
     }
 
