@@ -1,0 +1,11 @@
+#hbox {
+ -fx-background-color: #032541;
+}
+
+#moviesBtn, #loginBtn, #signupBtn, #aboutBtn {
+ -fx-background-color: #032541;
+}
+
+#moviesBtn:hover, #loginBtn:hover, #signupBtn:hover, #aboutBtn:hover {
+ -fx-background-color: #033055;
+}
