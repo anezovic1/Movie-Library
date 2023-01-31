@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,6 +20,7 @@ public class MovieController {
     public TableView moviesTable;
     public TableColumn<Movie, String> genreColumn;
     public TableColumn<Movie, String> titleColumn;
+    public Button cancelBtn;
 
     public void loginButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
@@ -36,5 +38,10 @@ public class MovieController {
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void cancelClick(ActionEvent actionEvent) {
+        Stage stage = (Stage)cancelBtn.getScene().getWindow();
+        stage.close();
     }
 }

@@ -77,4 +77,17 @@
          </padding>
       </TableView>
    </center>
+   <bottom>
+      <Button fx:id="cancelBtn" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#cancelClick" prefHeight="26.0" prefWidth="82.0" text="Cancel" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="BOTTOM_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="20.0" right="500.0" top="10.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Button>
+   </bottom>
 </BorderPane>

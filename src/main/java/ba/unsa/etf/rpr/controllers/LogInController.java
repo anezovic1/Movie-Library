@@ -4,12 +4,15 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LogInController {
     public TextField fieldUsername;
     public PasswordField fieldPassword;
+    public Button cancelBtn;
 
     @FXML
     public void initialize() {
@@ -30,5 +33,10 @@ public class LogInController {
     }
     public void loginButtonClick(ActionEvent actionEvent) {
 
+    }
+
+    public void cancelClick(ActionEvent actionEvent) {
+        Stage stage = (Stage)cancelBtn.getScene().getWindow();
+        stage.close();
     }
 }

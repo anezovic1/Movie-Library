@@ -1,8 +1,8 @@
-#hbox {
+#hbox{
  -fx-background-color: #032541;
 }
 
-#moviesBtn, #loginBtn, #signupBtn, #aboutBtn {
+#moviesBtn, #loginBtn, #signupBtn, #aboutBtn, #cancelBtn:hover {
  -fx-background-color: #032541;
 }
 
@@ -10,6 +10,6 @@
  -fx-background-color: #033055;
 }
 
-#moviesTable, #idBorderPane {
+#moviesTable, #idBorderPane, #cancelBtn {
     -fx-background-color: #033055;
 }
