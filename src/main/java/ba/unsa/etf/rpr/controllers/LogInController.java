@@ -19,7 +19,7 @@ public class LogInController {
         fieldUsername.getStyleClass().removeAll("fieldNotCorrect");
         fieldUsername.textProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
                 if(fieldUsername.getText().trim().isEmpty()) {
                     fieldUsername.getStyleClass().removeAll("fieldCorrect");
                     fieldUsername.getStyleClass().add("fieldNotCorrect");

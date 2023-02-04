@@ -120,8 +120,6 @@ public class HomeController {
         moviesController.idScrollPane.setContent(hbox);
         moviesController.idScrollPane.setPadding(new Insets(36.5));
 
-
-
         stage.setTitle("Movies in database");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);

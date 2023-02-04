@@ -43,31 +43,31 @@
                <padding>
                   <Insets bottom="5.0" />
                </padding></Label>
-            <TextField />
+            <TextField fx:id="idName" />
             <Label text="Last name" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
             </Label>
-            <TextField />
+            <TextField fx:id="idLastName" />
             <Label text="Username" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="444.0" />
+            <TextField fx:id="idUsername" prefHeight="26.0" prefWidth="444.0" />
             <Label text="Email" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
             </Label>
-            <TextField />
+            <TextField fx:id="idEmail" />
             <Label text="Password" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
             </Label>
-            <PasswordField />
+            <PasswordField fx:id="idPassword" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -83,7 +83,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="signupBtn" defaultButton="true" mnemonicParsing="false" text="Sign Up" textFill="WHITE">
+            <Button fx:id="signupBtn" defaultButton="true" mnemonicParsing="false" onAction="#singupClick" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

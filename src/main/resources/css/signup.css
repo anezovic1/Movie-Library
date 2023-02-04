@@ -17,3 +17,11 @@
 #idBenefitsBtn {
     -fx-background-color: #01b4e4;
 }
+
+.fieldNotCorrect {
+    -fx-background-color: lightpink;
+}
+
+.fieldCorrect {
+    -fx-background-color: yellowgreen;
+}
