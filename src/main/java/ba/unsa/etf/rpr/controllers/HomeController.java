@@ -11,9 +11,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -22,6 +26,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import javax.swing.text.Position;
+import java.awt.*;
 import java.io.IOException;
 import java.nio.file.attribute.PosixFileAttributes;
 import java.util.Date;
@@ -99,18 +104,21 @@ public class HomeController {
             moviePoster.setFitWidth(150);
             newLabel.setText(allMovies.get(i).getName());
             newLabel.setFont(Font.font("System", FontWeight.BOLD, 12));
+            newLabel.setStyle("-fx-text-fill: #032541;");
 
             VBox singleMovie = new VBox();
             singleMovie.getChildren().add(moviePoster);
             singleMovie.getChildren().add(newLabel);
             singleMovie.setSpacing(10);
             singleMovie.setAlignment(Pos.CENTER);
+
             hbox.getChildren().add(singleMovie);
         }
 
         hbox.setSpacing(40);
+        hbox.setStyle("-fx-background-color: #d0e8fd;");
         moviesController.idScrollPane.setContent(hbox);
-        moviesController.idScrollPane.setPadding(new Insets(25));
+        moviesController.idScrollPane.setPadding(new Insets(36));
 
 
 
