@@ -4,10 +4,19 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class SignUpController {
     public Button cancelBtn;
@@ -96,5 +105,14 @@ public class SignUpController {
                 break;
             }
         }
+
+        String validPassword = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(validPassword);
+        Matcher matcher = pattern.matcher(idEmail.getText());
+
+        if(!matcher.matches()) {
+            valid = false;
+        }
+
     }
 }
