@@ -20,20 +20,14 @@
     -fx-background-color:transparent;
 }
 
-.increment-button, .decrement-button {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
 
-#idScrollPane:horizontal .track,
-#idScrollPane:vertical .track{
+#idScrollPane:horizontal {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-background-radius: 0em;
 }
 
-#idScrollPane:horizontal .thumb,
-#idScrollPane:vertical .thumb {
-    -fx-background-color: white;
+#idScrollPane:horizontal .thumb {
+    -fx-background-color: red;
     -fx-background-radius: 5em;
 }

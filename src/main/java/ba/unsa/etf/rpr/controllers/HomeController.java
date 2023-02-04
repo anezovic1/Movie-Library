@@ -118,7 +118,7 @@ public class HomeController {
         hbox.setSpacing(40);
         hbox.setStyle("-fx-background-color: #d0e8fd;");
         moviesController.idScrollPane.setContent(hbox);
-        moviesController.idScrollPane.setPadding(new Insets(36));
+        moviesController.idScrollPane.setPadding(new Insets(36.5));
 
 
 
