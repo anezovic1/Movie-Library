@@ -1,0 +1,11 @@
+#hboxTop, #hboxBottom {
+    -fx-background-color: #032541;
+}
+
+#idCancelBtn:hover {
+ -fx-background-color: #033055;
+}
+
+#idCancelBtn {
+ -fx-background-color: #032541;
+}
