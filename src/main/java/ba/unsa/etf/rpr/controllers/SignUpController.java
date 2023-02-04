@@ -73,6 +73,28 @@ public class SignUpController {
     }
 
     public void singupClick(ActionEvent actionEvent) {
+        boolean valid = true;
 
+        if(idName.getText().contains(" ") || idUsername.getText().contains(" ") || idLastName.getText().contains(" ")) {
+            valid = false;
+        }
+        for(int i = 0; i < idName.getText().length(); i++) {
+            if(idName.getText().charAt(i) < 'A' || (idName.getText().charAt(i) > 'Z' && idName.getText().charAt(i) < 'a') || idName.getText().charAt(i) > 'z') {
+                valid = false;
+                break;
+            }
+        }
+        for(int i = 0; i < idLastName.getText().length(); i++) {
+            if(idName.getText().charAt(i) < 'A' || (idName.getText().charAt(i) > 'Z' && idName.getText().charAt(i) < 'a') || idName.getText().charAt(i) > 'z') {
+                valid = false;
+                break;
+            }
+        }
+        for(int i = 0; i < idUsername.getText().length(); i++) {
+            if(idName.getText().charAt(i) < 'A' || (idName.getText().charAt(i) > 'Z' && idName.getText().charAt(i) < 'a') || idName.getText().charAt(i) > 'z') {
+                valid = false;
+                break;
+            }
+        }
     }
 }
