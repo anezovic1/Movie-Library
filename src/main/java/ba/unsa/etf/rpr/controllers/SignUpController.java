@@ -94,13 +94,7 @@ public class SignUpController {
             }
         }
         for(int i = 0; i < idLastName.getText().length(); i++) {
-            if(idName.getText().charAt(i) < 'A' || (idName.getText().charAt(i) > 'Z' && idName.getText().charAt(i) < 'a') || idName.getText().charAt(i) > 'z') {
-                valid = false;
-                break;
-            }
-        }
-        for(int i = 0; i < idUsername.getText().length(); i++) {
-            if(idName.getText().charAt(i) < 'A' || (idName.getText().charAt(i) > 'Z' && idName.getText().charAt(i) < 'a') || idName.getText().charAt(i) > 'z') {
+            if(idLastName.getText().charAt(i) < 'A' || (idLastName.getText().charAt(i) > 'Z' && idLastName.getText().charAt(i) < 'a') || idLastName.getText().charAt(i) > 'z') {
                 valid = false;
                 break;
             }
@@ -112,6 +106,17 @@ public class SignUpController {
 
         if(!matcher.matches()) {
             valid = false;
+        }
+
+        if(!valid) {
+            System.out.println("usao");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+            alert.setTitle("Error alert");
+            alert.setHeaderText("Can not add user");
+            alert.setContentText("The information you entered is not valid! Please try again.");
+
+            alert.showAndWait();
         }
 
     }
