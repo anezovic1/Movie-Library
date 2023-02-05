@@ -14,15 +14,12 @@ public class DaoFactory {
     private static final MovieDao movieDao = new MovieDaoSQLImpl();
     private static final WatchlistDao watchlistDao = new WatchlistDaoSQLImpl();
     private static final UserDao userDao = new UserDaoSQLImpl();
-
     public static MovieDao movieDao() {
         return movieDao;
     }
-
     public static WatchlistDao watchlistDao() {
         return watchlistDao;
     }
-
     public static UserDao userDao() {
         return userDao;
     }

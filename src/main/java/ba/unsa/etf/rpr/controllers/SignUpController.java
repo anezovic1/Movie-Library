@@ -1,24 +1,29 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.Movie;
+import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class SignUpController {
+
+    private final UserManager userManager = new UserManager();
     public Button cancelBtn;
     public PasswordField idPassword;
     public TextField idEmail;
@@ -72,8 +77,6 @@ public class SignUpController {
                 }
             }
         });
-
-
     }
 
     public void cancelClick(ActionEvent actionEvent) {
@@ -81,10 +84,13 @@ public class SignUpController {
         stage.close();
     }
 
-    public void singupClick(ActionEvent actionEvent) {
+    public void singupClick(ActionEvent actionEvent) throws MovieException {
         boolean valid = true;
 
         if(idName.getText().contains(" ") || idUsername.getText().contains(" ") || idLastName.getText().contains(" ")) {
+            valid = false;
+        }
+        if(idName.getText() == null || idUsername.getText() == null || idLastName.getText() == null || idEmail.getText() == null || idPassword.getText() == null) {
             valid = false;
         }
         for(int i = 0; i < idName.getText().length(); i++) {
@@ -109,7 +115,6 @@ public class SignUpController {
         }
 
         if(!valid) {
-            System.out.println("usao");
             Alert alert = new Alert(Alert.AlertType.ERROR);
 
             alert.setTitle("Error alert");
@@ -118,6 +123,23 @@ public class SignUpController {
 
             alert.showAndWait();
         }
+        else {
+            List<User> allUsers = FXCollections.observableList(userManager.getAll());
+            int oldSize = allUsers.size();
 
+            User newUser = new User();
+            //newUser.setId(oldSize);
+            newUser.setName(idName.getText());
+            newUser.setLastName(idLastName.getText());
+            newUser.setUsername(idUsername.getText());
+            newUser.setEmail(idEmail.getText());
+            newUser.setPassword(idPassword.getText());
+            userManager.add(newUser);
+
+            allUsers = FXCollections.observableList(userManager.getAll());
+            int newSize = allUsers.size();
+            if(oldSize != newSize) System.out.println("success");
+
+        }
     }
 }

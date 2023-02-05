@@ -23,7 +23,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
             User user = new User();
             user.setId(rs.getInt("id"));
             user.setName(rs.getString("name"));
-            user.setLastName(rs.getString("lastName"));
+            user.setLastName(rs.getString("last_name"));
             user.setEmail(rs.getString("email"));
             user.setPassword(rs.getString("password"));
             user.setUsername(rs.getString("username"));
@@ -38,7 +38,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
         row.put("name", object.getName());
-        row.put("lastName", object.getLastName());
+        row.put("last_name", object.getLastName());
         row.put("email", object.getEmail());
         row.put("password", object.getPassword());
         row.put("username", object.getUsername());
