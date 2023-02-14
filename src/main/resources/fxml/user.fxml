@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ba.unsa.etf.rpr.controllers.UserController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0"
+            prefWidth="707.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ba.unsa.etf.rpr.controllers.UserController">
+   <stylesheets>
+      <URL value="@/css/user.css" />
+   </stylesheets>
+   <top>
+      <HBox fx:id="hbox1" prefHeight="47.0" prefWidth="707.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="36.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/rpr_logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="userNameLabel" alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="132.0" text="IME" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="310.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/user.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,7 +85,7 @@ public class SignUpController {
         stage.close();
     }
 
-    public void singupClick(ActionEvent actionEvent) throws MovieException {
+    public void singupClick(ActionEvent actionEvent) throws MovieException, IOException {
         boolean valid = true;
 
         if(idName.getText().contains(" ") || idUsername.getText().contains(" ") || idLastName.getText().contains(" ")) {
@@ -132,13 +133,16 @@ public class SignUpController {
             newUser.setPassword(idPassword.getText());
             userManager.add(newUser);
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
 
-            alert.setTitle("OK");
-            alert.setHeaderText("OK");
-            alert.setContentText("OK");
-
-            alert.showAndWait();
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
+            Parent root = loader.load();
+            UserController userController = loader.getController();
+            userController.userNameLabel.setText(idName.getText() + " " + idLastName.getText());
+            stage.setTitle("You are successfully logged in!");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
         }
     }
 }
