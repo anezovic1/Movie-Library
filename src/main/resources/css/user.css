@@ -1,3 +1,15 @@
 #hbox1 {
     -fx-background-color: #032541;
 }
+
+#idBorderPane {
+    -fx-background-color: #021729;
+}
+
+#idCreateWatchlist, #idLogoutBtn {
+    -fx-background-color: #021729;
+}
+
+#idCreateWatchlist:hover, #idLogoutBtn:hover {
+    -fx-background-color: #033055;
+}

@@ -125,4 +125,7 @@ public class HomeController {
         stage.setResizable(false);
         stage.show();
     }
+
+    public void loginAdminClick(ActionEvent actionEvent) {
+    }
 }

@@ -31,6 +31,7 @@ public class SignUpController {
     public TextField idUsername;
     public TextField idLastName;
     public TextField idName;
+    public Button signupBtn;
 
     @FXML
     public void initialize() {
@@ -133,6 +134,8 @@ public class SignUpController {
             newUser.setPassword(idPassword.getText());
             userManager.add(newUser);
 
+            Stage stage1 = (Stage)signupBtn.getScene().getWindow();
+            stage1.close();
 
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
