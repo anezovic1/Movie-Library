@@ -124,21 +124,13 @@ public class SignUpController {
             alert.showAndWait();
         }
         else {
-            /*List<User> allUsers = FXCollections.observableList(userManager.getAll());
-            int oldSize = allUsers.size();*/
-
             User newUser = new User();
-            //newUser.setId(0);
             newUser.setName(idName.getText());
             newUser.setLastName(idLastName.getText());
             newUser.setUsername(idUsername.getText());
             newUser.setEmail(idEmail.getText());
             newUser.setPassword(idPassword.getText());
             userManager.add(newUser);
-
-            /*allUsers = FXCollections.observableList(userManager.getAll());
-            int newSize = allUsers.size();
-            if(oldSize != newSize) System.out.println("success");*/
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
 
