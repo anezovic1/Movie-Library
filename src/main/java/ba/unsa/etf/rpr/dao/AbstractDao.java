@@ -125,6 +125,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
                 .append(" (").append(columns.getKey()).append(") ")
                 .append("VALUES (").append(columns.getValue()).append(")");
 
+
         try {
             PreparedStatement stmt = getConnecetion().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -136,6 +137,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             }
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
+
             rs.next();
             item.setId(rs.getInt(1));
             return item;
