@@ -6,11 +6,11 @@
     -fx-background-color: #021729;
 }
 
-#moviesBtn, #loginBtn, #signupBtn, #aboutBtn {
+#moviesBtn, #loginBtn, #signupBtn, #aboutBtn, #loginAdmin {
  -fx-background-color: #032541;
 }
 
-#moviesBtn:hover, #loginBtn:hover, #signupBtn:hover, #aboutBtn:hover {
+#moviesBtn:hover, #loginBtn:hover, #signupBtn:hover, #aboutBtn:hover, #loginAdmin:hover {
  -fx-background-color: #033055;
 }
 
