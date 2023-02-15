@@ -126,6 +126,12 @@ public class HomeController {
         stage.show();
     }
 
-    public void loginAdminClick(ActionEvent actionEvent) {
+    public void loginAdminClick(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
+        stage.setTitle("Admin");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 }
