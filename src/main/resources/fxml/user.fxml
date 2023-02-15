@@ -80,7 +80,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="idCreateWatchlist" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Create Watchlist" textFill="WHITE">
+                  <Button fx:id="idCreateWatchlist" mnemonicParsing="false" onAction="#createWatchlistClick" prefHeight="26.0" prefWidth="114.0" text="Create Watchlist" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>

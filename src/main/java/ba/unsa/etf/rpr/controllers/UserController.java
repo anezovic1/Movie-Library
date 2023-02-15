@@ -13,4 +13,7 @@ public class UserController {
         Stage stage = (Stage)idLogoutBtn.getScene().getWindow();
         stage.close();
     }
+
+    public void createWatchlistClick(ActionEvent actionEvent) {
+    }
 }
