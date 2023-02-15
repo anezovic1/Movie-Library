@@ -1,15 +1,32 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.Movie;
+import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.util.List;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
+
 public class LogInController {
+
+    public Button loginBtn;
+    UserManager userManager = new UserManager();
     public TextField fieldUsername;
     public PasswordField fieldPassword;
     public Button cancelBtn;
@@ -31,8 +48,40 @@ public class LogInController {
             }
         });
     }
-    public void loginButtonClick(ActionEvent actionEvent) {
+    public void loginButtonClick(ActionEvent actionEvent) throws MovieException, IOException {
+        List<User> allUsers = FXCollections.observableList(userManager.getAll());
+        boolean valid = false;
+        String nameAndlastName = "";
 
+        for(int i = 0; i < allUsers.size(); i++) {
+            if(allUsers.get(i).getUsername().equals(fieldUsername.getText()) && allUsers.get(i).getPassword().equals(fieldPassword.getText())) {
+                nameAndlastName = allUsers.get(i).getName() + " " + allUsers.get(i).getLastName();
+                valid = true;
+                break;
+            }
+        }
+
+        Stage stage1 = (Stage)loginBtn.getScene().getWindow();
+        stage1.close();
+
+        if(valid) {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
+            Parent root = loader.load();
+            UserController userController = loader.getController();
+            userController.userNameLabel.setText(nameAndlastName);
+            stage.setTitle("You are successfully logged in!");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog Box");
+            alert.setHeaderText("Please sing up first!");
+            alert.setContentText("Go to our home page and sing up.");
+            alert.showAndWait();
+        }
     }
 
     public void cancelClick(ActionEvent actionEvent) {
