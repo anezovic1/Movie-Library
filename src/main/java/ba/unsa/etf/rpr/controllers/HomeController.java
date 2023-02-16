@@ -112,12 +112,15 @@ public class HomeController {
             singleMovie.getChildren().add(newLabel);
             singleMovie.setSpacing(10);
             singleMovie.setAlignment(Pos.CENTER);
-
+            singleMovie.setStyle("-fx-background-color: #d0e8fd;");
             hbox.getChildren().add(singleMovie);
         }
 
         hbox.setSpacing(40);
-        hbox.setStyle("-fx-background-color: #d0e8fd;");
+
+        hbox.setStyle("-fx-background-color: transparent;");
+
+
         moviesController.idScrollPane.setContent(hbox);
         moviesController.idScrollPane.setPadding(new Insets(36.5));
 

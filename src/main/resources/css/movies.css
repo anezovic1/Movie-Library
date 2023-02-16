@@ -10,6 +10,10 @@
  -fx-background-color: #032541;
 }
 
+#idScrollPane > .viewport {
+   -fx-background-color: #d0e8fd;
+}
+
 #idScrollPane {
    /* -fx-background-image: url("/img/pozadina.png");*/
     -fx-background-color: #d0e8fd;
