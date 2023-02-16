@@ -11,7 +11,7 @@ public class Movie implements Idable {
     private String name;
     private String genre;
     private String duration;
-    private double rating;
+    private String rating;
 
     public int getId() {
         return id;
@@ -45,11 +45,11 @@ public class Movie implements Idable {
         this.duration = duration;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
@@ -69,7 +69,7 @@ public class Movie implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return id == movie.id && Double.compare(movie.rating, rating) == 0 && Objects.equals(name, movie.name) && Objects.equals(genre, movie.genre) && Objects.equals(duration, movie.duration);
+        return id == movie.id && Objects.equals(name, movie.name) && Objects.equals(genre, movie.genre) && Objects.equals(duration, movie.duration) && Objects.equals(rating, movie.rating);
     }
 
     @Override

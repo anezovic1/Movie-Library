@@ -34,7 +34,7 @@ public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
             movie.setName(rs.getString("name"));
             movie.setDuration(rs.getString("duration"));
             movie.setGenre(rs.getString("genre"));
-            movie.setRating(rs.getDouble("rating"));
+            movie.setRating(rs.getString("rating"));
             return movie;
         } catch(SQLException e) {
             throw new MovieException(e.getMessage(), e);

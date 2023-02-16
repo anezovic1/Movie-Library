@@ -28,6 +28,11 @@ public class AdminController {
     public Button deleteUserBtn;
     public Button deleteMovieBtn;
     public TextField idMovie;
+    public TextField movieRating;
+    public TextField movieDuration;
+    public TextField movieGenre;
+    public TextField movieName;
+    public Button addBtn;
     AdminManager adminManager = new AdminManager();
     MovieManager movieManager = new MovieManager();
     UserManager userManager = new UserManager();
@@ -144,6 +149,8 @@ public class AdminController {
         }
         else {
             userManager.delete(id);
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully deleted the user!", ButtonType.OK);
+            a.show();
         }
     }
 
@@ -159,9 +166,23 @@ public class AdminController {
         }
         else {
             movieManager.delete(id);
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully deleted the movie!", ButtonType.OK);
+            a.show();
         }
     }
 
-    public void addMovieOKClick(ActionEvent actionEvent) {
+    public void addMovieOKClick(ActionEvent actionEvent) throws MovieException {
+        Movie newMovie = new Movie();
+        newMovie.setName(movieName.getText());
+        newMovie.setGenre(movieGenre.getText());
+        newMovie.setDuration(movieDuration.getText());
+        newMovie.setRating(movieRating.getText());
+        movieManager.add(newMovie);
+
+        Stage stage = (Stage)addBtn.getScene().getWindow();
+        stage.close();
+
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully added the movie!", ButtonType.OK);
+        a.show();
     }
 }
