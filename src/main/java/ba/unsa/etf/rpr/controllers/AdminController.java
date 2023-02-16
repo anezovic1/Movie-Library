@@ -99,12 +99,29 @@ public class AdminController {
         listView.getItems().addAll(namesOfAllUsers);
     }
 
-    public void deleteUser(ActionEvent actionEvent) {
+    public void deleteUser(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/delete_user.fxml"));
+        Parent root = loader.load();
+        stage.setTitle("Delete user");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 
-    public void deleteMovie(ActionEvent actionEvent) {
+    public void deleteMovie(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/delete_movie.fxml"));
+        Parent root = loader.load();
+        stage.setTitle("Delete movie");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 
     public void addMovie(ActionEvent actionEvent) {
+    }
+
+    public void deleteUserOKClick(ActionEvent actionEvent) {
     }
 }
