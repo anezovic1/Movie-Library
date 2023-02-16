@@ -24,6 +24,10 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class AdminController {
 
     public ListView<String> listView;
+    public TextField idUser;
+    public Button deleteUserBtn;
+    public Button deleteMovieBtn;
+    public TextField idMovie;
     AdminManager adminManager = new AdminManager();
     MovieManager movieManager = new MovieManager();
     UserManager userManager = new UserManager();
@@ -122,6 +126,32 @@ public class AdminController {
     public void addMovie(ActionEvent actionEvent) {
     }
 
-    public void deleteUserOKClick(ActionEvent actionEvent) {
+    public void deleteUserOKClick(ActionEvent actionEvent) throws MovieException {
+        List<User> allUsers = FXCollections.observableList(userManager.getAll());
+        int id = Integer.parseInt(idUser.getText());
+
+        Stage stage = (Stage)deleteUserBtn.getScene().getWindow();
+        stage.close();
+        if(id < 0 || id > allUsers.size()) {
+            System.out.println("User is not deleted!" + id);
+        }
+        else {
+            userManager.delete(id);
+        }
+    }
+
+    public void deleteMovieOKClick(ActionEvent actionEvent) throws MovieException {
+        List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+        int id = Integer.parseInt(idMovie.getText());
+
+        Stage stage = (Stage)deleteMovieBtn.getScene().getWindow();
+        stage.close();
+
+        if(id < 0 || id > allMovies.size()) {
+            System.out.println("Movie is not deleted!" + id);
+        }
+        else {
+            movieManager.delete(id);
+        }
     }
 }

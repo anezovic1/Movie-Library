@@ -28,14 +28,14 @@
                 <Insets left="20.0" right="10.0" top="10.0" />
             </GridPane.margin>
         </Label>
-        <TextField prefHeight="26.0" prefWidth="368.0" GridPane.rowIndex="1">
+        <TextField fx:id="idMovie" prefHeight="26.0" prefWidth="368.0" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets bottom="10.0" left="20.0" right="200.0" top="10.0" />
             </GridPane.margin>
         </TextField>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
             <buttons>
-                <Button defaultButton="true" mnemonicParsing="false" onAction="#deleteUserOKClick" text="OK" />
+                <Button fx:id="deleteMovieBtn" defaultButton="true" mnemonicParsing="false" onAction="#deleteMovieOKClick" text="OK" />
                 <Button cancelButton="true" mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
             </buttons>
             <GridPane.margin>

@@ -63,10 +63,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     }
 
     public void delete(int id) throws MovieException {
-        String query = "DELETE FROM " + tableName + "WHERE id = ?";
+        String query = "DELETE FROM " + tableName + " WHERE id = ?";
         try {
             PreparedStatement stmt = getConnecetion().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setObject(1, id);
+            System.out.println(stmt);
             stmt.executeUpdate();
         } catch(SQLException e) {
             throw new MovieException(e.getMessage(), e);

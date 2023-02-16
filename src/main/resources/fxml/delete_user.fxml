@@ -28,15 +28,15 @@
             <Insets left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Label>
-      <TextField prefHeight="26.0" prefWidth="368.0" GridPane.rowIndex="1">
+      <TextField fx:id="idUser" prefHeight="26.0" prefWidth="368.0" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="20.0" right="200.0" top="10.0" />
          </GridPane.margin>
       </TextField>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
         <buttons>
-          <Button defaultButton="true" mnemonicParsing="false" onAction="#deleteUserOKClick" text="OK" />
-            <Button cancelButton="true" mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
+          <Button fx:id="deleteUserBtn" defaultButton="true" mnemonicParsing="false" onAction="#deleteUserOKClick" text="OK" />
+            <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
         </buttons>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
