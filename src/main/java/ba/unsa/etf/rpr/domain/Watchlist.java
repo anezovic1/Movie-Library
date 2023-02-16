@@ -9,6 +9,25 @@ import java.util.Objects;
 public class Watchlist implements Idable {
     private int id;
     private String name;
+    private int userId;
+
+    private String movies;
+
+    public String getMovies() {
+        return movies;
+    }
+
+    public void setMovies(String movies) {
+        this.movies = movies;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getId() {
         return id;
@@ -31,6 +50,8 @@ public class Watchlist implements Idable {
         return "Watchlist{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", userId=" + userId +
+                ", movies='" + movies + '\'' +
                 '}';
     }
 
@@ -39,11 +60,11 @@ public class Watchlist implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Watchlist watchlist = (Watchlist) o;
-        return id == watchlist.id && Objects.equals(name, watchlist.name);
+        return id == watchlist.id && userId == watchlist.userId && Objects.equals(name, watchlist.name) && Objects.equals(movies, watchlist.movies);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, userId, movies);
     }
 }

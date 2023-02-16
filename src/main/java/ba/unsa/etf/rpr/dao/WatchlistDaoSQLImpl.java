@@ -38,6 +38,8 @@ public class WatchlistDaoSQLImpl extends AbstractDao<Watchlist> implements Watch
             Watchlist watchlist = new Watchlist();
             watchlist.setId(rs.getInt("id"));
             watchlist.setName(rs.getString("name"));
+            watchlist.setUserId(rs.getInt("user_id"));
+            watchlist.setMovies(rs.getString("movies"));
             return watchlist;
         } catch(SQLException e) {
             throw new MovieException(e.getMessage(), e);
@@ -49,6 +51,8 @@ public class WatchlistDaoSQLImpl extends AbstractDao<Watchlist> implements Watch
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
         row.put("name", object.getName());
+        row.put("user_id", object.getUserId());
+        row.put("movies", object.getMovies());
         return row;
     }
 }
