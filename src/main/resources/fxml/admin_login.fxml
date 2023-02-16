@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,29 +12,29 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0"
-            prefWidth="707.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ba.unsa.etf.rpr.controllers.AdminController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.AdminController">
    <stylesheets>
       <URL value="@/css/admin_login.css" />
    </stylesheets>
    <top>
-      <VBox prefHeight="119.0" prefWidth="402.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="98.0" prefWidth="721.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="81.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/user (1).png" />
                </image>
+               <VBox.margin>
+                  <Insets left="305.0" />
+               </VBox.margin>
             </ImageView>
             <Line endX="-19.907100677490234" endY="-0.6213523745536804" startX="-100.0">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets left="305.0" top="5.0" />
                </VBox.margin>
             </Line>
          </children>
          <BorderPane.margin>
-            <Insets bottom="5.0" left="300.0" right="5.0" top="10.0" />
+            <Insets bottom="5.0" right="5.0" top="10.0" />
          </BorderPane.margin>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -43,22 +44,22 @@
    <center>
       <VBox prefHeight="372.0" prefWidth="707.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="adminNameLabel" alignment="CENTER" prefHeight="43.0" prefWidth="707.0">
+            <Label fx:id="adminNameLabel" alignment="CENTER" prefHeight="50.0" prefWidth="698.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="usersBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Users" textFill="#ff0202" underline="true">
+            <Button fx:id="usersBtn" mnemonicParsing="false" onAction="#usersBtnClick" prefHeight="26.0" prefWidth="94.0" text="Users" textFill="#ff0202" underline="true">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="moviesBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Movies" textFill="RED" underline="true">
+            <Button fx:id="moviesBtn" mnemonicParsing="false" onAction="#moviesBtnClick" prefHeight="26.0" prefWidth="94.0" text="Movies" textFill="RED" underline="true">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Button>
-            <ListView prefHeight="236.0" prefWidth="707.0" />
+            <ListView fx:id="listView" prefHeight="236.0" prefWidth="707.0" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

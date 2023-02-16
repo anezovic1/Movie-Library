@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 public class AdministratorDaoSQLImpl extends AbstractDao<Administrator> implements AdministratorDao{
     public AdministratorDaoSQLImpl() {
-        super("users");
+        super("admins");
     }
 
     @Override
