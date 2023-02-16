@@ -98,4 +98,13 @@ public class AdminController {
 
         listView.getItems().addAll(namesOfAllUsers);
     }
+
+    public void deleteUser(ActionEvent actionEvent) {
+    }
+
+    public void deleteMovie(ActionEvent actionEvent) {
+    }
+
+    public void addMovie(ActionEvent actionEvent) {
+    }
 }
