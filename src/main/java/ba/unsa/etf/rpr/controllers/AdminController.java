@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -72,6 +73,7 @@ public class AdminController {
             adminController.adminNameLabel.setText(fieldUsername.getText());
 
             stage.setTitle("Admin");
+            stage.getIcons().add(new Image("/img/footer.png"));
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -124,6 +126,7 @@ public class AdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/delete_movie.fxml"));
         Parent root = loader.load();
         stage.setTitle("Delete movie");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
@@ -134,6 +137,7 @@ public class AdminController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/add.fxml"));
         Parent root = loader.load();
         stage.setTitle("Add movie");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();

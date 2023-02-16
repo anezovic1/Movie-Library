@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class MovieController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Log in");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
@@ -35,6 +37,7 @@ public class MovieController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
         stage.setTitle("Sign up");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();

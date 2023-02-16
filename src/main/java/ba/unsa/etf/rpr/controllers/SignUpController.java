@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -143,6 +144,7 @@ public class SignUpController {
             UserController userController = loader.getController();
             userController.userNameLabel.setText(idName.getText() + " " + idLastName.getText());
             stage.setTitle("You are successfully logged in!");
+            stage.getIcons().add(new Image("/img/footer.png"));
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

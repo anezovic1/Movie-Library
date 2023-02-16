@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -71,6 +72,7 @@ public class LogInController {
             UserController userController = loader.getController();
             userController.userNameLabel.setText(nameAndlastName);
             stage.setTitle("You are successfully logged in!");
+            stage.getIcons().add(new Image("/img/footer.png"));
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

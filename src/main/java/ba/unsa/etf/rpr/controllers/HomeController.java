@@ -81,6 +81,7 @@ public class HomeController {
         }
 
         stage.setTitle("Movies");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
@@ -130,6 +131,7 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
         stage.setTitle("Admin");
+        stage.getIcons().add(new Image("/img/footer.png"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
