@@ -1,0 +1,7 @@
+#usersBtn, #moviesBtn {
+    -fx-background-color: #ffffff;
+}
+
+#usersBtn:hover, #moviesBtn:hover {
+ -fx-background-color: #EAEFF2;
+}
