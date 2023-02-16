@@ -33,6 +33,7 @@ public class AdminController {
     public TextField movieGenre;
     public TextField movieName;
     public Button addBtn;
+    public Button logoutBtn;
     AdminManager adminManager = new AdminManager();
     MovieManager movieManager = new MovieManager();
     UserManager userManager = new UserManager();
@@ -184,5 +185,10 @@ public class AdminController {
 
         Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully added the movie!", ButtonType.OK);
         a.show();
+    }
+
+    public void logoutBtnClick(ActionEvent actionEvent) {
+        Stage stage = (Stage)logoutBtn.getScene().getWindow();
+        stage.close();
     }
 }
