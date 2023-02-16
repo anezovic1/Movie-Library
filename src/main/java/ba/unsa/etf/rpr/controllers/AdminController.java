@@ -161,4 +161,7 @@ public class AdminController {
             movieManager.delete(id);
         }
     }
+
+    public void addMovieOKClick(ActionEvent actionEvent) {
+    }
 }
