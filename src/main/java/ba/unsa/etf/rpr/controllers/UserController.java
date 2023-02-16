@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.business.WatchlistManager;
 import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.domain.Watchlist;
@@ -30,9 +31,8 @@ public class UserController {
     public Button cancelBtn;
     public TextField watchlistName;
     public TextField listOfMoviesId;
-
     private UserManager userManager = new UserManager();
-
+    private WatchlistManager watchlistManager = new WatchlistManager();
     private final MovieManager movieManager = new MovieManager();
     public ListView listView;
 
@@ -66,7 +66,7 @@ public class UserController {
         stage.show();
     }
 
-    public void createBtnClick(ActionEvent actionEvent) throws MovieException {
+    public void createBtnClick(ActionEvent actionEvent) throws MovieException, IOException {
         Watchlist watchlist = new Watchlist();
 
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
@@ -77,12 +77,11 @@ public class UserController {
                 break;
             }
         }
-
-        List<Integer> idOfAllMovies = new ArrayList<>();
+        System.out.println(idUser);
         watchlist.setName(watchlistName.getText());
         watchlist.setUserId(idUser);
         watchlist.setMovies(listOfMoviesId.getText());
-
+        watchlistManager.add(watchlist);
     }
 
     public void cancelBtnClick(ActionEvent actionEvent) {

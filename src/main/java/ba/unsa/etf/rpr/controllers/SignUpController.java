@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class SignUpController {
-
     private final UserManager userManager = new UserManager();
     public Button cancelBtn;
     public PasswordField idPassword;
