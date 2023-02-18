@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Object;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -83,12 +84,12 @@ public class AdminController {
             stage.show();
         }
         else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+           Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error alert");
             alert.setHeaderText("Invalid information!");
             alert.setContentText("You don't have administrator access.");
 
-            alert.showAndWait();
+            alert.show();
         }
     }
 

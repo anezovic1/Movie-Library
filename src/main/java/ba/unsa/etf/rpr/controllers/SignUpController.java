@@ -123,7 +123,7 @@ public class SignUpController {
             alert.setHeaderText("Can not add user");
             alert.setContentText("The information you entered is not valid! Please try again.");
 
-            alert.showAndWait();
+            alert.show();
         }
         else {
             User newUser = new User();

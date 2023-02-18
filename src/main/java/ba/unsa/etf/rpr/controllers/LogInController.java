@@ -85,7 +85,7 @@ public class LogInController {
             alert.setTitle("Warning Dialog Box");
             alert.setHeaderText("Please sing up first!");
             alert.setContentText("Go to our home page and sing up.");
-            alert.showAndWait();
+            alert.show();
         }
     }
 
