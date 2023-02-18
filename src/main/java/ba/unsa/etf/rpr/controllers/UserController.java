@@ -87,7 +87,6 @@ public class UserController {
                 }
             }
 
-//////////////////////////////////////////RADI DOBRO///////////////////////////////////////////////
             movies.put(namesOfAllWatchlists.get(i), namesOfAllMovies);
         }
 

@@ -3,9 +3,11 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.AdminManager;
 import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.business.WatchlistManager;
 import ba.unsa.etf.rpr.domain.Administrator;
 import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.domain.Watchlist;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -38,6 +40,8 @@ public class AdminController {
     AdminManager adminManager = new AdminManager();
     MovieManager movieManager = new MovieManager();
     UserManager userManager = new UserManager();
+
+    WatchlistManager watchlistManager = new WatchlistManager();
     public Button loginBtn;
     public Button cancelBtn;
     public TextField fieldUsername;
@@ -153,6 +157,19 @@ public class AdminController {
             System.out.println("User is not deleted!" + id);
         }
         else {
+            List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+            List<Integer> idWatchlists = new ArrayList<>();
+
+            for(int i = 0; i < allWatchlists.size(); i++) {
+                if(allWatchlists.get(i).getUserId() == id) {
+                    idWatchlists.add(allWatchlists.get(i).getId());
+                }
+            }
+
+            for(int i = 0; i < idWatchlists.size(); i++) {
+                watchlistManager.delete(idWatchlists.get(i));
+            }
+
             userManager.delete(id);
             Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully deleted the user!", ButtonType.OK);
             a.show();
