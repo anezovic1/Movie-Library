@@ -25,9 +25,3 @@ public class AppFX extends Application {
         launch(args);
     }
 }
-
-/*public class App {
-    public static void main() {
-
-    }
-}*/
