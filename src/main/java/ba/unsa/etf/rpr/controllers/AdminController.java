@@ -187,6 +187,23 @@ public class AdminController {
             System.out.println("Movie is not deleted!" + id);
         }
         else {
+            List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+            List<Integer> idWatchlists = new ArrayList<>();
+
+            for(int i = 0; i < allWatchlists.size(); i++) {
+                String[] idMovies = allWatchlists.get(i).getMovies().split(",");
+
+                for(int j = 0; j < idMovies.length; j++) {
+                    if(id == Integer.parseInt(idMovies[j])) {
+                        idWatchlists.add(allWatchlists.get(i).getId());
+                    }
+                }
+            }
+
+            for(int i = 0; i < idWatchlists.size(); i++) {
+                watchlistManager.delete(idWatchlists.get(i));
+            }
+
             movieManager.delete(id);
             Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully deleted the movie!", ButtonType.OK);
             a.show();
