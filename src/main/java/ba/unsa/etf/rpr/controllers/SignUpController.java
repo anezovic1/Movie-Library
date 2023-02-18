@@ -137,16 +137,8 @@ public class SignUpController {
             Stage stage1 = (Stage)signupBtn.getScene().getWindow();
             stage1.close();
 
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
-            Parent root = loader.load();
-            UserController userController = loader.getController();
-            userController.userNameLabel.setText(idName.getText() + " " + idLastName.getText());
-            stage.setTitle("You are successfully logged in!");
-            stage.getIcons().add(new Image("/img/footer.png"));
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully signed up! Please, try to log in.", ButtonType.OK);
+            a.show();
         }
     }
 }
