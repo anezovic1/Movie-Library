@@ -4,11 +4,10 @@ import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.business.WatchlistManager;
 import ba.unsa.etf.rpr.domain.Movie;
+import ba.unsa.etf.rpr.domain.Row;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.domain.Watchlist;
 import ba.unsa.etf.rpr.exceptions.MovieException;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +20,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,13 +37,13 @@ public class UserController {
     private UserManager userManager = new UserManager();
     private WatchlistManager watchlistManager = new WatchlistManager();
     private final MovieManager movieManager = new MovieManager();
-    public ListView listView;
+    public ListView<String> listView;
 
-    public TableView watchlistsTable;
+    public TableView<Row> watchlistsTable;
 
-    public TableColumn watchlistColumn;
+    public TableColumn<Row, String> watchlistColumn;
 
-    public TableColumn moviesColumn;
+    public TableColumn<Row, String> moviesColumn;
 
     private int loggedUserId;
 
@@ -54,6 +52,54 @@ public class UserController {
 
     public UserController(int loggedUserId) {
         this.loggedUserId = loggedUserId;
+    }
+
+    public void showWatchlists() throws MovieException {
+        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+        List<String> namesOfAllWatchlists = new ArrayList<>();
+        List<String> moviesOfWatchlist = new ArrayList<>();
+
+        for(int i = 0; i < allWatchlists.size(); i++) {
+            if(allWatchlists.get(i).getUserId() == this.loggedUserId) {
+                namesOfAllWatchlists.add(allWatchlists.get(i).getName()); //   free time, my favourite
+                moviesOfWatchlist.add(allWatchlists.get(i).getMovies());  //  "1,4,7", "1,4"
+            }
+        }
+
+
+        Map<String, StringBuilder> movies = new HashMap<>();
+        List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+
+        for(int i = 0; i < moviesOfWatchlist.size(); i++) {
+            StringBuilder namesOfAllMovies = new StringBuilder("");
+            String[] splittedMovies = moviesOfWatchlist.get(i).split(",");
+
+            for(int j = 0; j < splittedMovies.length; j++) {
+                for(int k = 0; k < allMovies.size(); k++) {
+                    if(allMovies.get(k).getId() == Integer.parseInt(splittedMovies[j])) {
+                        if(j != splittedMovies.length - 1) {
+                            namesOfAllMovies.append(allMovies.get(k).getName() + ", ");
+                        }
+                        else {
+                            namesOfAllMovies.append(allMovies.get(k).getName());
+                        }
+                    }
+                }
+            }
+
+//////////////////////////////////////////RADI DOBRO///////////////////////////////////////////////
+            movies.put(namesOfAllWatchlists.get(i), namesOfAllMovies);
+        }
+
+        this.watchlistColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("header"));
+        this.moviesColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("value"));
+
+        List<Row> rowList = new ArrayList<>();
+        for (Map.Entry<String, StringBuilder> entry : movies.entrySet()) {
+            rowList.add(new Row(entry.getKey(), entry.getValue().toString()));
+        }
+        this.watchlistsTable.setItems(FXCollections.observableList(rowList));
+        //this.watchlistsTable.refresh();
     }
 
     @FXML
@@ -71,42 +117,7 @@ public class UserController {
 
         this.userNameLabel.setText(nameAndlastName);
 
-        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
-        List<String> namesOfAllWatchlists = new ArrayList<>();
-        List<String> moviesOfWatchlist = new ArrayList<>();
-
-        for(int i = 0; i < allWatchlists.size(); i++) {
-            if(allWatchlists.get(i).getUserId() == this.loggedUserId) {
-                namesOfAllWatchlists.add(allWatchlists.get(i).getName()); //   free time, my favourite
-                moviesOfWatchlist.add(allWatchlists.get(i).getMovies());  //  "1,4,7", "1,4"
-            }
-        }
-
-        Map<String, List<String>> movies = new HashMap<>();
-
-        List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
-
-        for(int i = 0; i < moviesOfWatchlist.size(); i++) {
-            List<String> namesOfAllMovies = new ArrayList<>();
-            String[] splittedMovies = moviesOfWatchlist.get(i).split(",");
-
-            for(int j = 0; j < splittedMovies.length; j++) {
-                for(int k = 0; k < allMovies.size(); k++) {
-                    if(allMovies.get(k).getId() == Integer.parseInt(splittedMovies[j])) {
-                        namesOfAllMovies.add(allMovies.get(k).getName());
-                    }
-
-                }
-            }
-
-            movies.put(moviesOfWatchlist.get(i), namesOfAllMovies);
-        }
-
-        for (Map.Entry<String, List<String>> entry : movies.entrySet()) {
-            System.out.println("ovo je: " + entry.getKey() + " " + entry.getValue());
-            this.watchlistsTable.getColumns().addAll(entry.getKey(), entry.getValue());
-        }
-        this.watchlistsTable.refresh();
+        showWatchlists();
     }
 
     public void logoutBtnClick(ActionEvent actionEvent) {
@@ -152,6 +163,8 @@ public class UserController {
 
         Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully created your watchlist!", ButtonType.OK);
         a.show();
+
+        showWatchlists();
     }
 
     public void cancelBtnClick(ActionEvent actionEvent) {
