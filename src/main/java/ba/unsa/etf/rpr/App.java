@@ -3,10 +3,12 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.business.AdminManager;
 import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.business.WatchlistManager;
 import ba.unsa.etf.rpr.controllers.AdminController;
 import ba.unsa.etf.rpr.domain.Administrator;
 import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.domain.Watchlist;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,7 @@ public class App {
         MovieManager movieManager = new MovieManager();
         UserManager userManager = new UserManager();
         AdminManager adminManager = new AdminManager();
+        WatchlistManager watchlistManager = new WatchlistManager();
 
 
         System.out.println("1 - List of all movies in our database");
@@ -180,6 +183,7 @@ public class App {
                 System.out.println("-d user - Delete a user");
                 System.out.println("-d movie - Delete a movie");
                 System.out.println("-a movie - Add a movie");
+                System.out.println("-q - Logout");
 
                 Scanner input2 = new Scanner(System.in);
                 System.out.println("Enter option: ");
@@ -201,6 +205,74 @@ public class App {
                     for(int i = 0; i < allMovies.size(); i++) {
                         System.out.println(allMovies.get(i).getId() + ". " + allMovies.get(i).getName());
                     }
+                }
+                else if(adminOption.equals("-d user")) {
+                    Scanner input3 = new Scanner(System.in);
+                    System.out.print("Enter the id of the user you want to delete: ");
+                    int userId = input3.nextInt();
+
+                    List<User> allUsers = FXCollections.observableList(userManager.getAll());
+
+                    if(userId < 0 || userId > allUsers.size()) {
+                        System.out.println("User is not deleted!");
+                    }
+                    else {
+                        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+                        List<Integer> idWatchlists = new ArrayList<>();
+
+                        for(int i = 0; i < allWatchlists.size(); i++) {
+                            if(allWatchlists.get(i).getUserId() == userId) {
+                                idWatchlists.add(allWatchlists.get(i).getId());
+                            }
+                        }
+
+                        for(int i = 0; i < idWatchlists.size(); i++) {
+                            watchlistManager.delete(idWatchlists.get(i));
+                        }
+
+                        userManager.delete(userId);
+                        System.out.println("You successfully deleted the user!");
+                    }
+
+                }
+                else if(adminOption.equals("-d movie")) {
+                    Scanner input3 = new Scanner(System.in);
+                    System.out.print("Enter the id of the movie you want to delete: ");
+                    int movieId = input3.nextInt();
+
+                    List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+
+                    if(movieId < 0 || movieId > allMovies.size()) {
+                        System.out.println("Movie is not deleted!");
+                    }
+                    else {
+                        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+                        List<Integer> idWatchlists = new ArrayList<>();
+
+                        for(int i = 0; i < allWatchlists.size(); i++) {
+                            String[] idMovies = allWatchlists.get(i).getMovies().split(",");
+
+                            for(int j = 0; j < idMovies.length; j++) {
+                                if(movieId == Integer.parseInt(idMovies[j])) {
+                                    idWatchlists.add(allWatchlists.get(i).getId());
+                                }
+                            }
+                        }
+
+                        for(int i = 0; i < idWatchlists.size(); i++) {
+                            watchlistManager.delete(idWatchlists.get(i));
+                        }
+
+                        movieManager.delete(movieId);
+                        System.out.println("You successfully deleted the movie!");
+                    }
+                }
+                else if(adminOption.equals("-a movie")) {
+
+                }
+                else if(adminOption.equals("-q")) {
+                    System.out.println("Goodbye!");
+                    //break;
                 }
 
             }
