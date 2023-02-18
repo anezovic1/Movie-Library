@@ -1,19 +1,28 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.AdminManager;
 import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.controllers.AdminController;
+import ba.unsa.etf.rpr.domain.Administrator;
 import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.collections.FXCollections;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class App {
     public static void main(String[] args) throws MovieException {
@@ -22,6 +31,7 @@ public class App {
 
         MovieManager movieManager = new MovieManager();
         UserManager userManager = new UserManager();
+        AdminManager adminManager = new AdminManager();
 
 
         System.out.println("1 - List of all movies in our database");
@@ -137,6 +147,35 @@ public class App {
                 userManager.add(newUser);
 
                 System.out.println("You successfully signed up! Please, try to log in.");
+            }
+        }
+        else if(option == 4) {
+            System.out.println("\n\nPlease enter your username and password to log in.\n");
+            String username = "";
+            String password = "";
+
+            Scanner input1 = new Scanner(System.in);
+            System.out.print("Enter your username: ");
+            username = input1.nextLine();
+            System.out.print("Enter your password: ");
+            password = input1.nextLine();
+
+            List<Administrator> allAdmins = FXCollections.observableList(adminManager.getAll());
+            boolean valid = false;
+
+            for(int i = 0; i < allAdmins.size(); i++) {
+                if(allAdmins.get(i).getUsername().equals(username) && allAdmins.get(i).getPassword().equals(password)) {
+                    valid = true;
+                    break;
+                }
+            }
+
+            if(valid) {
+                System.out.println("Welcome back administrator, " + username + "!");
+                System.out.println("                   :)                   ");
+            }
+            else {
+                System.out.println("You don't have administrator access.");
             }
         }
         else if (option == 6) {
