@@ -16,13 +16,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -37,6 +40,12 @@ public class UserController {
     private WatchlistManager watchlistManager = new WatchlistManager();
     private final MovieManager movieManager = new MovieManager();
     public ListView listView;
+
+    public TableView watchlistsTable;
+
+    public TableColumn watchlistColumn;
+
+    public TableColumn moviesColumn;
 
     private int loggedUserId;
 
@@ -61,6 +70,43 @@ public class UserController {
         }
 
         this.userNameLabel.setText(nameAndlastName);
+
+        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+        List<String> namesOfAllWatchlists = new ArrayList<>();
+        List<String> moviesOfWatchlist = new ArrayList<>();
+
+        for(int i = 0; i < allWatchlists.size(); i++) {
+            if(allWatchlists.get(i).getUserId() == this.loggedUserId) {
+                namesOfAllWatchlists.add(allWatchlists.get(i).getName()); //   free time, my favourite
+                moviesOfWatchlist.add(allWatchlists.get(i).getMovies());  //  "1,4,7", "1,4"
+            }
+        }
+
+        Map<String, List<String>> movies = new HashMap<>();
+
+        List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+
+        for(int i = 0; i < moviesOfWatchlist.size(); i++) {
+            List<String> namesOfAllMovies = new ArrayList<>();
+            String[] splittedMovies = moviesOfWatchlist.get(i).split(",");
+
+            for(int j = 0; j < splittedMovies.length; j++) {
+                for(int k = 0; k < allMovies.size(); k++) {
+                    if(allMovies.get(k).getId() == Integer.parseInt(splittedMovies[j])) {
+                        namesOfAllMovies.add(allMovies.get(k).getName());
+                    }
+
+                }
+            }
+
+            movies.put(moviesOfWatchlist.get(i), namesOfAllMovies);
+        }
+
+        for (Map.Entry<String, List<String>> entry : movies.entrySet()) {
+            System.out.println("ovo je: " + entry.getKey() + " " + entry.getValue());
+            this.watchlistsTable.getColumns().addAll(entry.getKey(), entry.getValue());
+        }
+        this.watchlistsTable.refresh();
     }
 
     public void logoutBtnClick(ActionEvent actionEvent) {

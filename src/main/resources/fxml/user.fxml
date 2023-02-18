@@ -61,10 +61,10 @@
                   <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Label>
-            <TableView prefHeight="352.0" prefWidth="696.0">
+            <TableView fx:id="watchlistsTable" prefHeight="352.0" prefWidth="696.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="watchlistColumn" prefWidth="156.79996651411057" text="Watchlist" />
+                <TableColumn fx:id="moviesColumn" minWidth="0.0" prefWidth="533.5999908447266" text="Movies" />
               </columns>
                <VBox.margin>
                   <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
