@@ -49,14 +49,16 @@ public class LogInController {
             }
         });
     }
+
+
     public void loginButtonClick(ActionEvent actionEvent) throws MovieException, IOException {
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
         boolean valid = false;
-        String nameAndlastName = "";
+        int userId = 0;
 
         for(int i = 0; i < allUsers.size(); i++) {
             if(allUsers.get(i).getUsername().equals(fieldUsername.getText()) && allUsers.get(i).getPassword().equals(fieldPassword.getText())) {
-                nameAndlastName = allUsers.get(i).getName() + " " + allUsers.get(i).getLastName();
+                userId = allUsers.get(i).getId();
                 valid = true;
                 break;
             }
@@ -68,9 +70,10 @@ public class LogInController {
         if(valid) {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
+            UserController userController = new UserController(userId);
+            loader.setController(userController);
             Parent root = loader.load();
-            UserController userController = loader.getController();
-            userController.userNameLabel.setText(nameAndlastName);
+
             stage.setTitle("You are successfully logged in!");
             stage.getIcons().add(new Image("/img/footer.png"));
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));

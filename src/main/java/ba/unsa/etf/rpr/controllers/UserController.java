@@ -7,8 +7,11 @@ import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.domain.Watchlist;
 import ba.unsa.etf.rpr.exceptions.MovieException;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,6 +39,31 @@ public class UserController {
     private final MovieManager movieManager = new MovieManager();
     public ListView listView;
 
+    private int loggedUserId;
+
+    public UserController() {
+    }
+
+    public UserController(int loggedUserId) {
+        this.loggedUserId = loggedUserId;
+    }
+
+    @FXML
+    public void initialize() throws MovieException {
+        List<User> allUsers = FXCollections.observableList(userManager.getAll());
+
+        String nameAndlastName = "";
+
+        for(int i = 0; i < allUsers.size(); i++) {
+            if(allUsers.get(i).getId() == loggedUserId) {
+                nameAndlastName = allUsers.get(i).getName() + " " + allUsers.get(i).getLastName();
+                break;
+            }
+        }
+
+        this.userNameLabel.setText(nameAndlastName);
+    }
+
     public void logoutBtnClick(ActionEvent actionEvent) {
         Stage stage = (Stage)idLogoutBtn.getScene().getWindow();
         stage.close();
@@ -44,20 +72,20 @@ public class UserController {
     public void createWatchlistClick(ActionEvent actionEvent) throws IOException, MovieException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/create_watchlist.fxml"));
+        loader.setController(this);
         Parent root = loader.load();
 
-        UserController userController = loader.getController();
+        System.out.println("OVO JE ID TRENUTNOG USERRA: " + loggedUserId);
 
-        userController.listView.getItems().clear();
+        this.listView.getItems().clear();
 
         List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
         List<String> namesOfAllMovies = new ArrayList<>();
-
         for(int i = 0; i < allMovies.size(); i++) {
             namesOfAllMovies.add(allMovies.get(i).getId() + ". " + allMovies.get(i).getName());
         }
 
-        userController.listView.getItems().addAll(namesOfAllMovies);
+        this.listView.getItems().addAll(namesOfAllMovies);
 
         stage.setTitle("Creating watchlist");
         stage.getIcons().add(new Image("/img/footer.png"));
@@ -69,19 +97,23 @@ public class UserController {
     public void createBtnClick(ActionEvent actionEvent) throws MovieException, IOException {
         Watchlist watchlist = new Watchlist();
 
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        Parent root = loader.load();
+        LogInController logInController = loader.getController();
+
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
         int idUser = 0;
         for(int i = 0; i < allUsers.size(); i++) {
-            if(userNameLabel.getText().equals(allUsers.get(i).getName() + " " + allUsers.get(i).getLastName())) {
+            if(logInController.getUserName().equals(allUsers.get(i).getName() + " " + allUsers.get(i).getLastName())) {
                 idUser = allUsers.get(i).getId();
                 break;
             }
-        }
-        System.out.println(idUser);
-        watchlist.setName(watchlistName.getText());
-        watchlist.setUserId(idUser);
+        }*/
+
+        /*watchlist.setName(watchlistName.getText());
+        watchlist.setUserId(loggedUserId);
         watchlist.setMovies(listOfMoviesId.getText());
-        watchlistManager.add(watchlist);
+        watchlistManager.add(watchlist);*/
     }
 
     public void cancelBtnClick(ActionEvent actionEvent) {
