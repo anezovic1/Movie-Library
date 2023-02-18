@@ -17,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -173,6 +174,35 @@ public class App {
             if(valid) {
                 System.out.println("Welcome back administrator, " + username + "!");
                 System.out.println("                   :)                   ");
+
+                System.out.println("\n-u - List of all users");
+                System.out.println("-m - List of all movies\n");
+                System.out.println("-d user - Delete a user");
+                System.out.println("-d movie - Delete a movie");
+                System.out.println("-a movie - Add a movie");
+
+                Scanner input2 = new Scanner(System.in);
+                System.out.println("Enter option: ");
+
+                String adminOption = input2.nextLine();
+
+                if(adminOption.equals("-u")) {
+                    System.out.println("Users: ");
+                    List<User> allUsers = FXCollections.observableList(userManager.getAll());
+
+                    for(int i = 0; i < allUsers.size(); i++) {
+                        System.out.println(allUsers.get(i).getId() + ". " + allUsers.get(i).getName() + " " + allUsers.get(i).getLastName());
+                    }
+                }
+                else if(adminOption.equals("-m")) {
+                    System.out.println("Movies: ");
+                    List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+
+                    for(int i = 0; i < allMovies.size(); i++) {
+                        System.out.println(allMovies.get(i).getId() + ". " + allMovies.get(i).getName());
+                    }
+                }
+
             }
             else {
                 System.out.println("You don't have administrator access.");
