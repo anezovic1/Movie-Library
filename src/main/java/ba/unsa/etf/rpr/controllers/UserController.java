@@ -15,14 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +30,7 @@ public class UserController {
     public Label userNameLabel;
     public Button idLogoutBtn;
     public Button cancelBtn;
+    public Button createBtn;
     public TextField watchlistName;
     public TextField listOfMoviesId;
     private UserManager userManager = new UserManager();
@@ -97,23 +96,16 @@ public class UserController {
     public void createBtnClick(ActionEvent actionEvent) throws MovieException, IOException {
         Watchlist watchlist = new Watchlist();
 
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        Parent root = loader.load();
-        LogInController logInController = loader.getController();
-
-        List<User> allUsers = FXCollections.observableList(userManager.getAll());
-        int idUser = 0;
-        for(int i = 0; i < allUsers.size(); i++) {
-            if(logInController.getUserName().equals(allUsers.get(i).getName() + " " + allUsers.get(i).getLastName())) {
-                idUser = allUsers.get(i).getId();
-                break;
-            }
-        }*/
-
-        /*watchlist.setName(watchlistName.getText());
+        watchlist.setName(watchlistName.getText());
         watchlist.setUserId(loggedUserId);
         watchlist.setMovies(listOfMoviesId.getText());
-        watchlistManager.add(watchlist);*/
+        watchlistManager.add(watchlist);
+
+        Stage stage1 = (Stage)createBtn.getScene().getWindow();
+        stage1.close();
+
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "You successfully created your watchlist!", ButtonType.OK);
+        a.show();
     }
 
     public void cancelBtnClick(ActionEvent actionEvent) {
