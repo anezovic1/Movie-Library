@@ -178,6 +178,20 @@ public class App {
                 System.out.println("You don't have administrator access.");
             }
         }
+        else if(option == 5) {
+            System.out.println("   Search for a movie in our database!   ");
+            String text = "";
+
+            Scanner input1 = new Scanner(System.in);
+            System.out.print("Enter the text to search for the movie you want: ");
+            text = input1.nextLine();
+
+            System.out.println("     Results:\n");
+            List<Movie> movies = FXCollections.observableList(movieManager.searchMovies(text));
+            for(int i = 0; i < movies.size(); i++) {
+                System.out.println(i + 1 + ". " + movies.get(i).getName());
+            }
+        }
         else if (option == 6) {
             System.out.println(":(");
         }
