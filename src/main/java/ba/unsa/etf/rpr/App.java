@@ -6,9 +6,14 @@ import ba.unsa.etf.rpr.domain.Movie;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class App {
     public static void main(String[] args) throws MovieException {
@@ -71,11 +76,72 @@ public class App {
                 System.out.println("Sorry, but you are not logged in. Please sign up.");
             }
         }
+        else if(option == 3) {
+            System.out.println("\n\nJoin the Community!\n");
+            System.out.println("\nPlease enter the required information.\n");
+            String name = "";
+            String lastName = "";
+            String email = "";
+            String username = "";
+            String password = "";
+
+            Scanner input1 = new Scanner(System.in);
+            System.out.print("Enter your name: ");
+            name = input1.nextLine();
+            System.out.print("Enter your last name: ");
+            lastName = input1.nextLine();
+            System.out.print("Enter your email: ");
+            email = input1.nextLine();
+            System.out.print("Enter your username: ");
+            username = input1.nextLine();
+            System.out.print("Enter your password: ");
+            password = input1.nextLine();
+
+            boolean valid = true;
+
+            if(name.contains(" ") || username.contains(" ") || lastName.contains(" ")) {
+                valid = false;
+            }
+
+            for(int i = 0; i < name.length(); i++) {
+                if(name.charAt(i) < 'A' || (name.charAt(i) > 'Z' && name.charAt(i) < 'a') || name.charAt(i) > 'z') {
+                    valid = false;
+                    break;
+                }
+            }
+            for(int i = 0; i < lastName.length(); i++) {
+                if(lastName.charAt(i) < 'A' || (lastName.charAt(i) > 'Z' && lastName.charAt(i) < 'a') || lastName.charAt(i) > 'z') {
+                    valid = false;
+                    break;
+                }
+            }
+
+            String validPassword = "^(.+)@(.+)$";
+            Pattern pattern = Pattern.compile(validPassword);
+            Matcher matcher = pattern.matcher(email);
+
+            if(!matcher.matches()) {
+                valid = false;
+            }
+
+            if(!valid) {
+                System.out.println("Sorry, but you entered invalid information. Please check again.");
+            }
+            else {
+                User newUser = new User();
+                newUser.setName(name);
+                newUser.setLastName(lastName);
+                newUser.setUsername(username);
+                newUser.setEmail(email);
+                newUser.setPassword(password);
+                userManager.add(newUser);
+
+                System.out.println("You successfully signed up! Please, try to log in.");
+            }
+        }
         else if (option == 6) {
             System.out.println(":(");
         }
-
-
 
     }
 }
