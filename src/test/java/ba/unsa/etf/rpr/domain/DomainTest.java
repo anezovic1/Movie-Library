@@ -48,4 +48,15 @@ public class DomainTest {
         assertEquals("8.8", movie.getRating());
     }
 
+    @Test
+    public void testWatchlistSetterGetter() {
+        Watchlist watchlist = new Watchlist();
+        watchlist.setName("relaxing");
+        watchlist.setUserId(1);
+        watchlist.setMovies("1,2,3");
+
+        assertEquals("relaxing", watchlist.getName());
+        assertEquals(1, watchlist.getUserId());
+        assertEquals("1,2,3", watchlist.getMovies());
+    }
 }
