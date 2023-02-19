@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
