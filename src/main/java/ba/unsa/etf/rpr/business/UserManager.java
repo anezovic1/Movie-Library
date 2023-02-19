@@ -8,6 +8,18 @@ import ba.unsa.etf.rpr.exceptions.MovieException;
 import java.util.List;
 
 public class UserManager {
+
+    public void validateUserName(String name) throws MovieException{
+        if(name.contains(" ") || name == null) {
+            throw new MovieException("User name is invalid!");
+        }
+
+        for(int i = 0; i < name.length(); i++) {
+            if(name.charAt(i) < 'A' || (name.charAt(i) > 'Z' && name.charAt(i) < 'a') || name.charAt(i) > 'z') {
+                throw new MovieException("User name is invalid!");
+            }
+        }
+    }
     public List<User> getAll() throws MovieException {
         return DaoFactory.userDao().getAll();
     }
