@@ -34,4 +34,18 @@ public class DomainTest {
         assertEquals("anida", admin.getUsername());
     }
 
+    @Test
+    public void testMovieSetterGetter() {
+        Movie movie = new Movie();
+        movie.setName("Inception");
+        movie.setGenre("action");
+        movie.setDuration("2h 38m");
+        movie.setRating("8.8");
+
+        assertEquals("Inception", movie.getName());
+        assertEquals("action", movie.getGenre());
+        assertEquals("2h 38m", movie.getDuration());
+        assertEquals("8.8", movie.getRating());
+    }
+
 }
