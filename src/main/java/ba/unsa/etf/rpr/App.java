@@ -268,6 +268,30 @@ public class App {
                     }
                 }
                 else if(adminOption.equals("-a movie")) {
+                    System.out.println("\nAdd a new movie to our database.\n");
+                    String name = "";
+                    String genre = "";
+                    String duration = "";
+                    String rating = "";
+
+                    Scanner input3 = new Scanner(System.in);
+                    System.out.print("Enter name: ");
+                    name = input3.nextLine();
+                    System.out.print("Enter genre: ");
+                    genre = input3.nextLine();
+                    System.out.print("Enter duration: ");
+                    duration = input3.nextLine();
+                    System.out.print("Enter rating: ");
+                    rating = input3.nextLine();
+
+                    Movie newMovie = new Movie();
+                    newMovie.setName(name);
+                    newMovie.setGenre(genre);
+                    newMovie.setDuration(duration);
+                    newMovie.setRating(rating);
+                    movieManager.add(newMovie);
+
+                    System.out.println("You successfully added the movie!");
 
                 }
                 else if(adminOption.equals("-q")) {
