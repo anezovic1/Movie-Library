@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 public class Administrator implements Idable {
+
     private int id;
     private String username;
     private String password;
