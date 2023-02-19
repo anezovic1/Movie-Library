@@ -129,6 +129,27 @@ public class App {
                         System.out.println(entry.getKey() + ":\n" + entry.getValue());
                     }
                 }
+                else if(userOption.equals("create watchlist")) {
+                    System.out.println("\nPlease enter the required information.\n");
+                    String watchlistName = "";
+                    String listOfMoviesId = "";
+
+                    Scanner input3 = new Scanner(System.in);
+                    System.out.print("Enter name: ");
+                    watchlistName = input3.nextLine();
+                    System.out.print("Enter movie id (\",\" between them): ");
+                    listOfMoviesId = input3.nextLine();
+
+                    Watchlist watchlist = new Watchlist();
+
+                    watchlist.setName(watchlistName);
+                    watchlist.setUserId(userId);
+                    watchlist.setMovies(listOfMoviesId);
+                    watchlistManager.add(watchlist);
+
+                    System.out.println("You successfully created your watchlist!");
+
+                }
             }
             else {
                 System.out.println("Sorry, but you are not logged in. Please sign up.");
