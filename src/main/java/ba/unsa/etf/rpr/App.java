@@ -5,10 +5,7 @@ import ba.unsa.etf.rpr.business.MovieManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.business.WatchlistManager;
 import ba.unsa.etf.rpr.controllers.AdminController;
-import ba.unsa.etf.rpr.domain.Administrator;
-import ba.unsa.etf.rpr.domain.Movie;
-import ba.unsa.etf.rpr.domain.User;
-import ba.unsa.etf.rpr.domain.Watchlist;
+import ba.unsa.etf.rpr.domain.*;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
@@ -16,12 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -74,10 +70,12 @@ public class App {
 
             boolean valid = false;
             String name = "";
+            int userId = 0;
 
             for(int i = 0; i < allUsers.size(); i++) {
                 if(allUsers.get(i).getUsername().equals(username) && allUsers.get(i).getPassword().equals(password)) {
                     name = allUsers.get(i).getName() + " " + allUsers.get(i).getLastName();
+                    userId = allUsers.get(i).getId();
                     valid = true;
                     break;
                 }
@@ -85,6 +83,52 @@ public class App {
 
             if(valid) {
                 System.out.println("\n\n    Welcome back, " + name + "!\n\n");
+
+                System.out.println("You can choose the option you want.\n");
+
+                System.out.println("show watchlist - Show all of m watchlists");
+                System.out.println("create watchlist - Create new watchlist");
+                System.out.println("logout - Logout");
+
+                Scanner input2 = new Scanner(System.in);
+                System.out.print("\nEnter option: ");
+                String userOption = input2.nextLine();
+
+                if(userOption.equals("show watchlist")) {
+                    List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+                    List<String> namesOfAllWatchlists = new ArrayList<>();
+                    List<String> moviesOfWatchlist = new ArrayList<>();
+
+                    for(int i = 0; i < allWatchlists.size(); i++) {
+                        if(allWatchlists.get(i).getUserId() == userId) {
+                            namesOfAllWatchlists.add(allWatchlists.get(i).getName()); //   free time, my favourite
+                            moviesOfWatchlist.add(allWatchlists.get(i).getMovies());  //  "1,4,7", "1,4"
+                        }
+                    }
+
+
+                    Map<String, StringBuilder> movies = new HashMap<>();
+                    List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+
+                    for(int i = 0; i < moviesOfWatchlist.size(); i++) {
+                        StringBuilder namesOfAllMovies = new StringBuilder("");
+                        String[] splittedMovies = moviesOfWatchlist.get(i).split(",");
+
+                        for(int j = 0; j < splittedMovies.length; j++) {
+                            for(int k = 0; k < allMovies.size(); k++) {
+                                if(allMovies.get(k).getId() == Integer.parseInt(splittedMovies[j])) {
+                                    namesOfAllMovies.append("- " + allMovies.get(k).getName() + "\n");
+                                }
+                            }
+                        }
+
+                        movies.put(namesOfAllWatchlists.get(i), namesOfAllMovies);
+                    }
+
+                    for (Map.Entry<String, StringBuilder> entry : movies.entrySet()) {
+                        System.out.println(entry.getKey() + ":\n" + entry.getValue());
+                    }
+                }
             }
             else {
                 System.out.println("Sorry, but you are not logged in. Please sign up.");
