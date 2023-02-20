@@ -2,21 +2,37 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
+/**
+ * This is JavaBean Class for admin.
+ *
+ * @author Anida Nezovic
+ */
 public class Administrator implements Idable {
-
     private int id;
     private String username;
     private String password;
 
+    /**
+     * Class constructor.
+     */
     public Administrator() {
 
     }
 
+    /**
+     * Class constructor specifying admins username and password.
+     */
     public Administrator(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    /**
+     * Sets the id. At the moment we don't need this method
+     * because id is autoincremented.
+     *
+     * @param id the id to set
+     */
     @Override
     public void setId(int id) {
 
