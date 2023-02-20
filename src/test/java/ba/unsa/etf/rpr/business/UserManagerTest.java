@@ -39,5 +39,4 @@ public class UserManagerTest {
         System.out.println(newUser.getPassword());
         Mockito.verify(userManager).update(newUser);
     }
-
 }

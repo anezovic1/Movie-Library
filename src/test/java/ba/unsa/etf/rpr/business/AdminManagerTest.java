@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AdminManagerTest {
     private AdminManager adminManager = new AdminManager();
-
+    private Administrator newAdmin = new Administrator("admin", "admin");
     @BeforeEach
     public void initializeObjectsWeNeed() {
         adminManager = Mockito.mock(AdminManager.class);
@@ -20,9 +20,23 @@ public class AdminManagerTest {
 
     @Test
     void addNewAdmin() throws MovieException {
-        Administrator newAdmin = new Administrator("admin", "admin");
         adminManager.add(newAdmin);
         Mockito.verify(adminManager).add(newAdmin);
+    }
+
+    @Test
+    void deleteUser() throws MovieException {
+        adminManager.delete(2);
+        Mockito.verify(adminManager).delete(2);
+    }
+
+    @Test
+    void updateUser() throws MovieException {
+        System.out.println(newAdmin.getPassword());
+        newAdmin.setPassword("novi admin");
+        adminManager.update(newAdmin);
+        System.out.println(newAdmin.getPassword());
+        Mockito.verify(adminManager).update(newAdmin);
     }
 
 }
