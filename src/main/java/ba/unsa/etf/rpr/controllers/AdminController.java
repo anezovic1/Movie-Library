@@ -154,6 +154,11 @@ public class AdminController {
         stage.show();
     }
 
+    /**
+     * This method opens a new window in which the admin can delete specific movie.
+     *
+     * @param actionEvent
+     */
     public void deleteMovie(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/delete_movie.fxml"));
