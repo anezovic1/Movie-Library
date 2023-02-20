@@ -106,6 +106,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * This method is called when admin clicks on 'movies' button. It shows all movies that are in database.
+     *
+     * @param actionEvent
+     */
     public void moviesBtnClick(ActionEvent actionEvent) throws MovieException {
         listView.getItems().clear();
         List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
