@@ -89,11 +89,20 @@ public class SignUpController {
         });
     }
 
+    /**
+     * Method that closes current window when cancel button is clicked.
+     *
+     * @param actionEvent
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * This method adds a new user to database, but before that checks if information is valid or not.
+     * @param actionEvent
+     */
     public void singupClick(ActionEvent actionEvent) throws MovieException, IOException {
         boolean valid = true;
 
