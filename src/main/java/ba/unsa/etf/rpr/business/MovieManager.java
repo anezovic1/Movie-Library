@@ -6,6 +6,11 @@ import ba.unsa.etf.rpr.exceptions.MovieException;
 
 import java.util.List;
 
+/**
+ * Business Logic Layer for management of Movies
+ *
+ * @author Anida Nezovic
+ */
 public class MovieManager {
 
     public List<Movie> getAll() throws MovieException {
