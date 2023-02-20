@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * This is JavaBean Class for admin.
+ * This is JavaBean Class for the admin.
  *
  * @author Anida Nezovic
  */
