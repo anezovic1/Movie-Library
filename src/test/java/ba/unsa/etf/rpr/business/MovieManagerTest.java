@@ -27,4 +27,13 @@ public class MovieManagerTest {
         movieManager.delete(1);
         Mockito.verify(movieManager).delete(1);
     }
+
+    @Test
+    void updateMovie() throws MovieException {
+        System.out.println(newMovie.getRating());
+        newMovie.setRating("9.0");
+        movieManager.update(newMovie);
+        System.out.println(newMovie.getRating());
+        Mockito.verify(movieManager).update(newMovie);
+    }
 }
