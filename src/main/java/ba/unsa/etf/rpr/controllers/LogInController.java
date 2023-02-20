@@ -58,7 +58,11 @@ public class LogInController {
         });
     }
 
-
+    /**
+     * Method that checks if user is present in database. If yes, user can successfully log in.
+     *
+     * @param actionEvent
+     */
     public void loginButtonClick(ActionEvent actionEvent) throws MovieException, IOException {
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
         boolean valid = false;
@@ -97,6 +101,11 @@ public class LogInController {
         }
     }
 
+    /**
+     * Method that closes current window when cancel button is clicked.
+     *
+     * @param actionEvent
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
