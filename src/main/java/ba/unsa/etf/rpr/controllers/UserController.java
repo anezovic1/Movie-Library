@@ -132,11 +132,21 @@ public class UserController {
         showWatchlists();
     }
 
+    /**
+     * This method allows admin to logout.
+     *
+     * @param actionEvent
+     */
     public void logoutBtnClick(ActionEvent actionEvent) {
         Stage stage = (Stage)idLogoutBtn.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * This method shows window for creating a new watchlist.
+     *
+     * @param actionEvent
+     */
     public void createWatchlistClick(ActionEvent actionEvent) throws IOException, MovieException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/create_watchlist.fxml"));
@@ -162,6 +172,11 @@ public class UserController {
         stage.show();
     }
 
+    /**
+     * This method creates new watchlist. It communicates directly with database.
+     *
+     * @param actionEvent
+     */
     public void createBtnClick(ActionEvent actionEvent) throws MovieException, IOException {
         Watchlist watchlist = new Watchlist();
 
