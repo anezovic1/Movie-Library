@@ -51,4 +51,15 @@ public class HomeControllerTest {
         assertNotNull(username);
     }
 
+    @Test
+    void signupBtnClickTest(FxRobot robot) {
+        Button singupButton = robot.lookup("#signupBtn").queryAs(Button.class);
+        assertNotNull(singupButton);
+        robot.clickOn("#signupBtn");
+
+        robot.lookup("#title").tryQuery().isPresent();
+        Label title = robot.lookup("#title").queryAs(Label.class);
+        assertNotNull(title);
+    }
+
 }

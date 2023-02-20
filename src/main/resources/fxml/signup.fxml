@@ -29,7 +29,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" text="Sign up for an account" textFill="WHITE">
+      <Label fx:id="title" alignment="CENTER" text="Sign up for an account" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
