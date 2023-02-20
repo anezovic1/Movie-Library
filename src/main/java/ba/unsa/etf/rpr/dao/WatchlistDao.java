@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.domain.Watchlist;
 
 /**
  * Dao interface for Watchlist domain bean
- * @author anida
+ * @author Anida Nezovic
  */
 public interface WatchlistDao extends Dao<Watchlist> {
 }

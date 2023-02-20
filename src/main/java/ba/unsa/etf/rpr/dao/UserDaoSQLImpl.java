@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 /**
  * MySQL Implementation of DAO
- * @author anida
+ * @author Anida Nezovic
  */
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     public UserDaoSQLImpl() {

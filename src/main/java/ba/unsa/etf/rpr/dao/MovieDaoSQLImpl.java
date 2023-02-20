@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 /**
  * MySQL Implementation of DAO
- * @author anida
+ * @author Anida Nezovic
  */
 public class MovieDaoSQLImpl extends AbstractDao<Movie> implements MovieDao {
 

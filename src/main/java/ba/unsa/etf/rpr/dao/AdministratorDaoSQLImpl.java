@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * MySQL Implementation of the DAO
+ * @author Anida Nezovic
+ */
 public class AdministratorDaoSQLImpl extends AbstractDao<Administrator> implements AdministratorDao{
     public AdministratorDaoSQLImpl() {
         super("admins");

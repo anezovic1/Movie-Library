@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 /**
  * MySQL Implementation of the DAO
- * @author anida
+ * @author Anida Nezovic
  */
 public class WatchlistDaoSQLImpl extends AbstractDao<Watchlist> implements WatchlistDao {
 

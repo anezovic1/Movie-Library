@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Dao interface for Movie domain bean
- * @author anida
+ * @author Anida Nezovic
  */
 public interface MovieDao extends Dao<Movie> {
     List<Movie> searchByText(String text) throws MovieException;
