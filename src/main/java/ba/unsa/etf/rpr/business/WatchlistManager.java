@@ -7,6 +7,11 @@ import ba.unsa.etf.rpr.exceptions.MovieException;
 
 import java.util.List;
 
+/**
+ * Business Logic Layer for management of Watchlists
+ *
+ * @author Anida Nezovic
+ */
 public class WatchlistManager {
     public List<Watchlist> getAll() throws MovieException {
         return DaoFactory.watchlistDao().getAll();
