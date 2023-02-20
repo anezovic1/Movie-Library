@@ -17,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,11 @@ import java.lang.Object;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for admin management
+ *
+ * @author Anida Nezovic
+ */
 public class AdminController {
 
     public ListView<String> listView;
@@ -41,7 +45,6 @@ public class AdminController {
     AdminManager adminManager = new AdminManager();
     MovieManager movieManager = new MovieManager();
     UserManager userManager = new UserManager();
-
     WatchlistManager watchlistManager = new WatchlistManager();
     public Button loginBtn;
     public Button cancelBtn;
@@ -49,6 +52,11 @@ public class AdminController {
     public Label adminNameLabel;
     public PasswordField fieldPassword;
 
+    /**
+     * Method that closes current window when cancel button is clicked.
+     *
+     * @param actionEvent
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
