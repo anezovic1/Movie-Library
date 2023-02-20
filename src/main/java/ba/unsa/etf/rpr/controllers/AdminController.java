@@ -186,6 +186,11 @@ public class AdminController {
         stage.show();
     }
 
+    /**
+     * This method really does delete a user. It communicates directly with database.
+     *
+     * @param actionEvent
+     */
     public void deleteUserOKClick(ActionEvent actionEvent) throws MovieException {
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
         int id = Integer.parseInt(idUser.getText());
