@@ -111,6 +111,9 @@ public class UserController {
         //this.watchlistsTable.refresh();
     }
 
+    /**
+     * This method sets value of the label. Value is the full name of the current user.
+     */
     @FXML
     public void initialize() throws MovieException {
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
