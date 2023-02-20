@@ -23,6 +23,10 @@ public class Movie implements Idable {
         this.rating = rating;
     }
 
+    public Movie(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
