@@ -6,7 +6,7 @@ import ba.unsa.etf.rpr.domain.Watchlist;
 
 /**
  * Factory method for singleton implementation od DAOs
- * @author anida
+ * @author Anida Nezovic
  */
 public class DaoFactory {
     public DaoFactory() {
