@@ -23,6 +23,11 @@ import java.util.regex.Pattern;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for sign up management
+ *
+ * @author Anida Nezovic
+ */
 public class SignUpController {
     private final UserManager userManager = new UserManager();
     public Button cancelBtn;
@@ -33,6 +38,9 @@ public class SignUpController {
     public TextField idName;
     public Button signupBtn;
 
+    /**
+     * Method that checks if user entered valid information. Text Field is red if nothing is entered.
+     */
     @FXML
     public void initialize() {
         idUsername.getStyleClass().removeAll("fieldNotCorrect");
