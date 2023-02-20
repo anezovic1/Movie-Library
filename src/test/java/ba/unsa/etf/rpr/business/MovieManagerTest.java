@@ -21,4 +21,10 @@ public class MovieManagerTest {
         movieManager.add(newMovie);
         Mockito.verify(movieManager).add(newMovie);
     }
+
+    @Test
+    void deleteMovie() throws MovieException {
+        movieManager.delete(1);
+        Mockito.verify(movieManager).delete(1);
+    }
 }
