@@ -139,6 +139,11 @@ public class AdminController {
         listView.getItems().addAll(namesOfAllUsers);
     }
 
+    /**
+     * This method opens a new window in which the admin can delete specific user.
+     *
+     * @param actionEvent
+     */
     public void deleteUser(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/delete_user.fxml"));
