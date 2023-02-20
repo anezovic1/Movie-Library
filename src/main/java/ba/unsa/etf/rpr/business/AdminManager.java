@@ -7,6 +7,11 @@ import ba.unsa.etf.rpr.exceptions.MovieException;
 
 import java.util.List;
 
+/**
+ * Business Logic Layer for management of Admins
+ *
+ * @author Anida Nezovic
+ */
 public class AdminManager {
     public List<Administrator> getAll() throws MovieException {
         return DaoFactory.adminDao().getAll();
