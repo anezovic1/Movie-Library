@@ -105,6 +105,11 @@ public class HomeController {
         stage.show();
     }
 
+    /**
+     * Method that lists all movies from database. It gives full movie list.
+     *
+     * @param actionEvent
+     */
     public void moviesBtnClick(ActionEvent actionEvent) throws IOException, MovieException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/movies.fxml"));
