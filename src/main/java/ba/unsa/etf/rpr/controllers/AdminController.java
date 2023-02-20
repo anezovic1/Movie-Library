@@ -259,6 +259,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * This method adds a movie. It communicates directly with database.
+     *
+     * @param actionEvent
+     */
     public void addMovieOKClick(ActionEvent actionEvent) throws MovieException {
         Movie newMovie = new Movie();
         newMovie.setName(movieName.getText());
