@@ -16,6 +16,11 @@ import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for movies search results management
+ *
+ * @author Anida Nezovic
+ */
 public class MovieController {
     public Label idSearchLabel;
     public TableView moviesTable;
@@ -23,6 +28,12 @@ public class MovieController {
     public TableColumn<Movie, String> titleColumn;
     public Button cancelBtn;
 
+    /**
+     * Method that opens up a window for logging in.
+     * Same as in HomeController.
+     *
+     * @param actionEvent
+     */
     public void loginButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
@@ -33,6 +44,12 @@ public class MovieController {
         stage.show();
     }
 
+    /**
+     * Method that opens up a window for signing up.
+     * Same as in HomeController.
+     *
+     * @param actionEvent
+     */
     public void signUpButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
@@ -43,6 +60,11 @@ public class MovieController {
         stage.show();
     }
 
+    /**
+     * Method that closes current window when cancel button is clicked.
+     *
+     * @param actionEvent
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
