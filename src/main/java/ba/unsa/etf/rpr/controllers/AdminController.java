@@ -220,6 +220,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * This method really does delete a movie. It communicates directly with database.
+     *
+     * @param actionEvent
+     */
     public void deleteMovieOKClick(ActionEvent actionEvent) throws MovieException {
         List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
         int id = Integer.parseInt(idMovie.getText());
