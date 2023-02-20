@@ -62,6 +62,11 @@ public class AdminController {
         stage.close();
     }
 
+    /**
+     * Method by which the admin logs in. If entered information is invalid an alert pops up.
+     *
+     * @param actionEvent
+     */
     public void loginClick(ActionEvent actionEvent) throws IOException, MovieException {
         List<Administrator> allAdmins = FXCollections.observableList(adminManager.getAll());
         boolean valid = false;
