@@ -27,6 +27,11 @@ import java.util.Map;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for user management
+ *
+ * @author Anida Nezovic
+ */
 public class UserController {
     public Label userNameLabel;
     public Button idLogoutBtn;
@@ -38,22 +43,27 @@ public class UserController {
     private WatchlistManager watchlistManager = new WatchlistManager();
     private final MovieManager movieManager = new MovieManager();
     public ListView<String> listView;
-
     public TableView<Row> watchlistsTable;
-
     public TableColumn<Row, String> watchlistColumn;
-
     public TableColumn<Row, String> moviesColumn;
-
     private int loggedUserId;
 
+    /**
+     * Class constructor.
+     */
     public UserController() {
     }
 
+    /**
+     * Class constructor specifying id of the user that is currently logged in.
+     */
     public UserController(int loggedUserId) {
         this.loggedUserId = loggedUserId;
     }
 
+    /**
+     * This method updates users table view of watchlists.
+     */
     public void showWatchlists() throws MovieException {
         List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
         List<String> namesOfAllWatchlists = new ArrayList<>();
@@ -166,6 +176,11 @@ public class UserController {
         showWatchlists();
     }
 
+    /**
+     * Method that closes current window when cancel button is clicked.
+     *
+     * @param actionEvent
+     */
     public void cancelBtnClick(ActionEvent actionEvent) {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
