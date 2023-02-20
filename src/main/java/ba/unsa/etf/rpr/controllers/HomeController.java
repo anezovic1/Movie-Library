@@ -73,7 +73,11 @@ public class HomeController {
         stage.show();
     }
 
-
+    /**
+     * Method that puts results of a search into table view.
+     *
+     * @param actionEvent
+     */
     public void searchBtnClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/movie.fxml"));
