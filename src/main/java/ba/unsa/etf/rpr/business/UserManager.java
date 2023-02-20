@@ -9,6 +9,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Business Logic Layer for management of Users
+ *
+ * @author Anida Nezovic
+ */
 public class UserManager {
 
     public void validateUser(String name, String lastName, String email) throws MovieException {
