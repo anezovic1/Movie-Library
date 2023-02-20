@@ -41,19 +41,10 @@ public class DaoTest {
 
 
     @Test
-    void validateCategoryName() throws MovieException {
+    void validateUser() throws MovieException {
         String correctName = "Harry";
         String correctLasName = "Potter";
         String correctEmail = "harry123@gmail.com";
-
-//        try {
-//            Mockito.doCallRealMethod().when(userManager).validateUser(correctName, correctLasName, correctEmail);
-//        } catch (MovieException e) {
-//            //Test will fall if method validateCategoryName(name) throws an exception for correct parameter
-//            e.printStackTrace();
-//            assertTrue(false);
-//        }
-
         String incorrectName = " ";
         String incorrectLastName = "Pot+ter";
         String incorrectEmail = "email.com";
