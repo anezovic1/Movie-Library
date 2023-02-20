@@ -34,7 +34,7 @@ public class LogInControllerTest {
     }
 
     @Test
-    void buttonClickTest(FxRobot robot) {
+    void loginBtnClickTest(FxRobot robot) {
         Button loginButton = robot.lookup("#loginBtn").queryAs(Button.class);
         assertNotNull(loginButton);
         robot.clickOn("#fieldUsername");
@@ -47,5 +47,4 @@ public class LogInControllerTest {
         Label userFullName = robot.lookup("#userNameLabel").queryAs(Label.class);
         assertNotNull(userFullName);
     }
-
 }
