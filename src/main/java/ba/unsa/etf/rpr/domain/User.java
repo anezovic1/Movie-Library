@@ -10,7 +10,17 @@ public class User implements Idable {
     private String username;
     private String password;
 
+    public User(int id, String name, String lastName, String email, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
 
+    public User() {
+    }
 
     public int getId() {
         return id;
