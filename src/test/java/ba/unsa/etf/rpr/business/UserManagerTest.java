@@ -21,9 +21,15 @@ public class UserManagerTest {
 
     @Test
     void addNewUser() throws MovieException {
-        User newUser = new User(1, "Neko", "Drugic", "nekodrugic@gmail.com","neko_drugic123", "nekoneko");
+        User newUser = new User("Neko", "Drugic", "nekodrugic@gmail.com","neko_drugic123", "nekoneko");
         userManager.add(newUser);
         Mockito.verify(userManager).add(newUser);
+    }
+
+    @Test
+    void deleteUser() throws MovieException {
+        userManager.delete(5);
+        Mockito.verify(userManager).delete(5);
     }
 
 }
