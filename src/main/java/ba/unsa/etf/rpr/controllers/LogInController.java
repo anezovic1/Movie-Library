@@ -24,6 +24,11 @@ import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for log in management
+ *
+ * @author Anida Nezovic
+ */
 public class LogInController {
 
     public Button loginBtn;
@@ -32,6 +37,9 @@ public class LogInController {
     public PasswordField fieldPassword;
     public Button cancelBtn;
 
+    /**
+     * Method that checks if user entered valid information. Text Field is red if nothing is entered.
+     */
     @FXML
     public void initialize() {
         fieldUsername.getStyleClass().removeAll("fieldNotCorrect");
