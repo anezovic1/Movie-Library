@@ -35,12 +35,21 @@ import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller for home page management
+ *
+ * @author Anida Nezovic
+ */
 public class HomeController {
-
     private final MovieManager movieManager = new MovieManager();
     public TextField idSearchItem;
     public Button moviesBtn;
 
+    /**
+     * Method by which the user logs in.
+     *
+     * @param actionEvent
+     */
     public void loginButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
