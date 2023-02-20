@@ -7,6 +7,18 @@ public class Administrator implements Idable {
     private int id;
     private String username;
     private String password;
+
+    public Administrator() {
+
+    }
+
+    public Administrator(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+
+
     @Override
     public void setId(int id) {
 
