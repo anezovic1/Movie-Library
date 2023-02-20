@@ -6,11 +6,13 @@ import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MovieException;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserManager {
 
-    public void validateUserName(String name) throws MovieException{
-        if(name.contains(" ") || name == null) {
+    public void validateUser(String name, String lastName, String email) throws MovieException {
+        if(name.contains(" ") || name == null || lastName.contains(" ") || lastName == null) {
             throw new MovieException("User name is invalid!");
         }
 
@@ -18,6 +20,20 @@ public class UserManager {
             if(name.charAt(i) < 'A' || (name.charAt(i) > 'Z' && name.charAt(i) < 'a') || name.charAt(i) > 'z') {
                 throw new MovieException("User name is invalid!");
             }
+        }
+
+        for(int i = 0; i < lastName.length(); i++) {
+            if(lastName.charAt(i) < 'A' || (lastName.charAt(i) > 'Z' && lastName.charAt(i) < 'a') || lastName.charAt(i) > 'z') {
+                throw new MovieException("User name is invalid!");
+            }
+        }
+
+        String validPassword = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(validPassword);
+        Matcher matcher = pattern.matcher(email);
+
+        if(!matcher.matches()) {
+            throw new MovieException("User name is invalid!");
         }
     }
     public List<User> getAll() throws MovieException {
