@@ -8,18 +8,26 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * abstract class that implements core DAO CRUD methods for every entity
- * @author anida
+ * Abstract class that implements core DAO CRUD methods for every entity.
+ * @author Anida Nezovic
  */
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private static Connection connection;
     private String tableName;
 
+    /**
+     * Class constructor specifying name of the specific table.
+     *
+     * @param tableName
+     */
     public AbstractDao(String tableName) {
         this.tableName = tableName;
         createConnection();
     }
 
+    /**
+     * Method that creates connection to database.
+     */
     private static void createConnection() {
         if(AbstractDao.connection == null) {
             try {
@@ -47,21 +55,55 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             }
         }
     }
+
+    /**
+     * Getter for connection
+     *
+     * @return Connection
+     */
     public static Connection getConnecetion() {
         return AbstractDao.connection;
     }
 
+    /**
+     * Method for mapping ResultSet into Object
+     *
+     * @param rs - result set from database
+     * @return a Bean object for specific table
+     * @throws MovieException in case of error with db
+     */
     public abstract T row2object(ResultSet rs) throws MovieException;
+
+    /**
+     * Method for mapping Object into Map
+     * @param object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     public abstract Map<String, Object> object2row(T object);
+
+    /**
+     * Method for defining query for getting an item by id.
+     *
+     * @param id
+     */
     public T getById(int id) throws MovieException {
         return executeQueryUnique("SELECT * FROM " + this.tableName + " WHERE id = ?", new Object[]{id});
     }
 
+    /**
+     * Method for defining query that selects all items from specific table.
+     *
+     * @return List<T>
+     */
     public List<T> getAll() throws MovieException {
         return executeQuery("SELECT * FROM "+ tableName, null);
-
     }
 
+    /**
+     * Method for defining query that deletes item by id.
+     *
+     * @param id
+     */
     public void delete(int id) throws MovieException {
         String query = "DELETE FROM " + tableName + " WHERE id = ?";
         try {
@@ -115,6 +157,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
         return columns.toString();
     }
+
+    /**
+     * Method for defining query that adds item to database.
+     *
+     * @param item
+     */
     public T add(T item) throws MovieException {
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
@@ -146,6 +194,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Method for defining query that updates item to database.
+     *
+     * @param item
+     */
     public T update(T item) throws MovieException {
         Map<String, Object> row = object2row(item);
         String updateColumns = prepareUpdateParts(row);
