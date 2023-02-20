@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * This is the main class for working with JavaFX framework. It opens up first window of the application.
+ *
+ * @author Anida Nezovic
+ */
+
 public class AppFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
