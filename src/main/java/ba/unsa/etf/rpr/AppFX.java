@@ -17,8 +17,6 @@ public class AppFX extends Application {
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("/img/footer.png"));
-        //primaryStage.setMinHeight(490);
-        //primaryStage.setMinWidth(740);
         primaryStage.show();
     }
     public static void main(String[] args) {
