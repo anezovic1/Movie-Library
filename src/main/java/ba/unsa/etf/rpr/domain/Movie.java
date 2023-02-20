@@ -13,6 +13,16 @@ public class Movie implements Idable {
     private String duration;
     private String rating;
 
+    public Movie() {
+    }
+
+    public Movie(String name, String genre, String duration, String rating) {
+        this.name = name;
+        this.genre = genre;
+        this.duration = duration;
+        this.rating = rating;
+    }
+
     public int getId() {
         return id;
     }
