@@ -122,6 +122,11 @@ public class AdminController {
         listView.getItems().addAll(namesOfAllMovies);
     }
 
+    /**
+     * This method is called when admin clicks on 'users' button. It shows all users that are in database.
+     *
+     * @param actionEvent
+     */
     public void usersBtnClick(ActionEvent actionEvent) throws MovieException {
         listView.getItems().clear();
         List<User> allUsers = FXCollections.observableList(userManager.getAll());
