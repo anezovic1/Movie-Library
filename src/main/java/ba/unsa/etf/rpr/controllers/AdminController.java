@@ -170,6 +170,11 @@ public class AdminController {
         stage.show();
     }
 
+    /**
+     * This method opens a new window in which the admin can add a new movie.
+     *
+     * @param actionEvent
+     */
     public void addMovie(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/add.fxml"));
