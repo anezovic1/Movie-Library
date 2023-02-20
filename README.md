@@ -1,7 +1,21 @@
-## Description of the project
+# Description of the project
 
-This is a simple project inspired by TMDB and IMDb. It includes logging in, signing up, searching for a certain movie and creating watchlists.
+This is a simple application in Java that was implemented as a project for university coursework. Project was inspired by TMDB and IMDb.
+This application contains all important information about all movies and users that are in our database.
 
-### Use:
-* mvn clean install
-* mvn clean javafx:run
+* Users can sign up, log in, create watchlists and search for a specific movie.
+* Admins can add a new movie, delete movies, delete users and see all users and movies that are stored in database.
+
+
+## How to run the App?
+
+The most important command for running this app is:
+```
+mvn clean javafx:run
+```
+Other commands we used are:
+```
+mvn clean install
+mvn javadoc:aggregate
+```
+
