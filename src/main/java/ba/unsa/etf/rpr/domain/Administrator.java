@@ -17,8 +17,6 @@ public class Administrator implements Idable {
         this.password = password;
     }
 
-
-
     @Override
     public void setId(int id) {
 
