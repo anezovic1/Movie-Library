@@ -16,6 +16,13 @@ import java.util.regex.Pattern;
  */
 public class UserManager {
 
+    /**
+     * Method that does the validation of users personal information.
+     *
+     * @param name
+     * @param lastName
+     * @param email
+     */
     public void validateUser(String name, String lastName, String email) throws MovieException {
         if(name.contains(" ") || name == null || lastName.contains(" ") || lastName == null) {
             throw new MovieException("User name is invalid!");
