@@ -23,6 +23,12 @@ import java.util.regex.Pattern;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * In the main method CLI (Command Line Interface) implementation of the application is provided.
+ * Picking a specific option can give you more choices for interacting with TMDB.
+ *
+ * @author Anida Nezovic
+ */
 public class App {
     public static void main(String[] args) throws MovieException {
         System.out.println("               WELCOME TO TMDB!\n");
