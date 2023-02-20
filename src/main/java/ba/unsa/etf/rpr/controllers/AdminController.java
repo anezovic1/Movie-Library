@@ -279,6 +279,11 @@ public class AdminController {
         a.show();
     }
 
+    /**
+     * This method allows admin to logout.
+     *
+     * @param actionEvent
+     */
     public void logoutBtnClick(ActionEvent actionEvent) {
         Stage stage = (Stage)logoutBtn.getScene().getWindow();
         stage.close();
