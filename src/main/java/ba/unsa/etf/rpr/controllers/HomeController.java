@@ -46,7 +46,7 @@ public class HomeController {
     public Button moviesBtn;
 
     /**
-     * Method by which the user logs in.
+     * Method that opens up a window for logging in.
      *
      * @param actionEvent
      */
@@ -59,6 +59,11 @@ public class HomeController {
         stage.show();
     }
 
+    /**
+     * Method that opens up a window for signing up.
+     *
+     * @param actionEvent
+     */
     public void signUpButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
