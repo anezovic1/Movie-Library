@@ -151,6 +151,11 @@ public class HomeController {
         stage.show();
     }
 
+    /**
+     * Method that opens up a window for logging in as admin.
+     *
+     * @param actionEvent
+     */
     public void loginAdminClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
