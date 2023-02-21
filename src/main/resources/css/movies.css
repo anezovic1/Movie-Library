@@ -1,0 +1,37 @@
+#hboxTop, #hboxBottom, #idBorderPane {
+    -fx-background-color: #032541;
+}
+
+#idCancelBtn:hover {
+ -fx-background-color: #033055;
+}
+
+#idCancelBtn {
+ -fx-background-color: #032541;
+}
+
+#idScrollPane > .viewport {
+   -fx-background-color: #d0e8fd;
+}
+
+#idScrollPane {
+   /* -fx-background-image: url("/img/pozadina.png");*/
+    -fx-background-color: #d0e8fd;
+}
+
+
+#idScrollPane:horizontal, #idScrollPane:vertical{
+    -fx-background-color:transparent;
+}
+
+
+#idScrollPane:horizontal {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+#idScrollPane:horizontal .thumb {
+    -fx-background-color: red;
+    -fx-background-radius: 5em;
+}

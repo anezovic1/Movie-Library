@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="idGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.SignUpController">
+  <stylesheets>
+      <URL value="@/css/signup.css" />
+  </stylesheets>
+    <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="546.4000183105469" minWidth="10.0" prefWidth="517.5999694824219" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.39996337890625" minWidth="10.0" prefWidth="189.60003051757815" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="159.60001220703126" minHeight="10.0" prefHeight="25.199999237060553" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="303.60000076293943" minHeight="10.0" prefHeight="303.60000076293943" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="title" alignment="CENTER" text="Sign up for an account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Label>
+      <VBox prefHeight="341.0" prefWidth="550.0" GridPane.rowIndex="1">
+         <children>
+            <Label text="Name" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding></Label>
+            <TextField fx:id="idName" />
+            <Label text="Last name" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="idLastName" />
+            <Label text="Username" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="idUsername" prefHeight="26.0" prefWidth="444.0" />
+            <Label text="Email" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="idEmail" />
+            <Label text="Password" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" top="20.0" />
+               </padding>
+            </Label>
+            <PasswordField fx:id="idPassword" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </VBox>
+      <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="97.0" prefWidth="362.0" GridPane.rowIndex="2">
+        <buttons>
+          <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#cancelClick" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="signupBtn" defaultButton="true" mnemonicParsing="false" onAction="#singupClick" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+        </buttons>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </ButtonBar>
+      <ImageView fitHeight="65.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+         <image>
+            <Image url="@../img/footer.png" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="50.0" right="10.0" top="40.0" />
+         </GridPane.margin>
+      </ImageView>
+   </children>
+</GridPane>

@@ -1,0 +1,24 @@
+#hbox1, #hbox2 {
+ -fx-background-color: #032541;
+}
+
+#idBorderPane {
+    -fx-background-color: #021729;
+}
+
+#moviesBtn, #loginBtn, #signupBtn, #aboutBtn, #loginAdmin {
+ -fx-background-color: #032541;
+}
+
+#moviesBtn:hover, #loginBtn:hover, #signupBtn:hover, #aboutBtn:hover, #loginAdmin:hover {
+ -fx-background-color: #033055;
+}
+
+#searchBtn {
+    -fx-background-color: linear-gradient(from 5px 5px to 50px 50px, #77f0cc, #56e3f4);
+}
+
+#idSearchItem {
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}

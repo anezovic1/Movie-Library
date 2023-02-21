@@ -1,0 +1,15 @@
+.fieldNotCorrect {
+    -fx-background-color: lightpink;
+}
+
+.fieldCorrect {
+    -fx-background-color: yellowgreen;
+}
+
+#idGridPane {
+    -fx-background-color: #032541;
+}
+
+#loginBtn, #cancelBtn {
+ -fx-background-color: #033055;
+}

@@ -1,0 +1,4 @@
+#idBorderPane {
+    -fx-background-image: url("/img/pozadina.png");
+    -fx-background-opacity: 0.5;
+}
