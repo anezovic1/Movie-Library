@@ -1,7 +1,7 @@
 # Description of the project
 
 
-![My Image](../img/footer.png)
+![My Image](../resources/img/footer.png)
 
 This is a simple application in Java that was implemented as a project for university coursework. Project was inspired by TMDB and IMDb.
 This application contains all important information about all movies and users that are in our database.
