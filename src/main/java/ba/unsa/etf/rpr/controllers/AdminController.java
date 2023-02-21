@@ -232,8 +232,8 @@ public class AdminController {
         Stage stage = (Stage)deleteMovieBtn.getScene().getWindow();
         stage.close();
 
-        if(id < 0 || id > allMovies.size()) {
-            System.out.println("Movie is not deleted!" + id);
+        if(id < 0) {
+            System.out.println("Movie is not deleted!" + id + " " + allMovies.size());
         }
         else {
             List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
