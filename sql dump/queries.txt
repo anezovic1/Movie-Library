@@ -1,0 +1,84 @@
+----Movies----
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Jumanji: Welcome to the Jungle', 'adventure', '1h 59m', '5.0');
+
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Harry Potter and the Sorcerer\'s Stone', 'fantasy', '2h 32m', '7.6');
+
+INSERT INTO freedb_RPRBaza.movies (id, name, genre, duration, rating)
+VALUES (3, 'Jumanji: The Next Level', 'adventure', '2h 3m', '6.7');
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Iron Man', 'action', '2h 6m', '7.9');
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Harry Potter and the Chamber of Secrets', 'adventure', '2h 41m', '7.4');
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Once Upon a Time in Hollywood', 'comedy', '2h 41m', '7.6');
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Avatar: The Way of Water', 'fantasy', '3h 12m', '7.8');
+
+DELETE FROM freedb_RPRBaza.movies WHERE name='Jumanji: Welcome to the Jungle';
+
+SELECT * FROM freedb_RPRBaza.movies;
+
+INSERT INTO freedb_RPRBaza.movies (name, genre, duration, rating)
+VALUES ('Inception', 'action', '2h 28m', '8.8');
+
+DELETE FROM freedb_RPRBaza.movies
+
+UPDATE freedb_RPRBaza.movies
+SET id = 4
+WHERE name = 'Iron Man';
+
+ALTER TABLE freedb_RPRBaza.movies
+  DROP COLUMN watchlist_id;
+  
+ALTER TABLE freedb_RPRBaza.movies AUTO_INCREMENT = 0
+
+DELETE FROM freedb_RPRBaza.movies WHERE id=9;
+
+----Users----
+SELECT * FROM freedb_RPRBaza.users;
+
+INSERT INTO freedb_RPRBaza.users (name, last_name, email, username, password)
+VALUES ('Neko', 'Nekic', 'neko1@gmail.com', 'neko123', 'nekooo');
+
+DELETE FROM freedb_RPRBaza.users WHERE id=2;
+
+UPDATE freedb_RPRBaza.users
+SET id = 1
+WHERE name = 'Neko';
+
+ALTER TABLE freedb_RPRBaza.users AUTO_INCREMENT = 0
+
+----Admins-----
+select * from admins;
+
+INSERT INTO freedb_RPRBaza.admins (username, password)
+VALUES ('anida', 'RPR2023');
+
+DELETE FROM freedb_RPRBaza.admins WHERE id=3;
+
+ALTER TABLE freedb_RPRBaza.admins AUTO_INCREMENT = 0
+
+----Watchlists----
+INSERT INTO freedb_RPRBaza.watchlists (name, user_id, movies)
+VALUES ('cool', 1, '2,3');
+
+INSERT INTO freedb_RPRBaza.watchlists (name, user_id, movies)
+VALUES ('free time', 1, '4,5,6');
+
+select * from freedb_RPRBaza.watchlists
+
+UPDATE freedb_RPRBaza.watchlists
+SET id = 1
+WHERE name = 'free time';
+
+ALTER TABLE freedb_RPRBaza.watchlists AUTO_INCREMENT = 0;
+
+DELETE FROM freedb_RPRBaza.watchlists;
