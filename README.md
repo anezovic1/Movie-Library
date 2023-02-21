@@ -1,5 +1,7 @@
 # Description of the project
 
+<img align="right" src="/img/footer.png">
+
 This is a simple application in Java that was implemented as a project for university coursework. Project was inspired by TMDB and IMDb.
 This application contains all important information about all movies and users that are in our database.
 
