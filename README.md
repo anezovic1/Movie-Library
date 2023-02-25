@@ -24,5 +24,5 @@ mvn javadoc:aggregate
 
 * Search for a movie
 
-<img src="./resources/search.gif"/>
 
+![](https://raw.githubusercontent.com/search.gif)
