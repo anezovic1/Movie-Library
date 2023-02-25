@@ -21,14 +21,23 @@ mvn javadoc:aggregate
 ```
 
 ## Functionality
+* Search for a movie
 
-1. Search for a movie
 ![search](gif/search.gif)
 
-* Log in
+* Log in and create watchlist
+
+![login](gif/login_create.gif)
+
+* List of all movies
+
+![login](gif/movies.gif)
+
 * Log in as admin
-* Sign up
-* Create watchlist
+
+![login](gif/admin.gif)
+
+
 
 
 
