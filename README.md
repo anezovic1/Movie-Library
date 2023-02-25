@@ -20,3 +20,8 @@ mvn clean install
 mvn javadoc:aggregate
 ```
 
+## Functionality
+
+* Search for a movie
+
+![](search.gif)
