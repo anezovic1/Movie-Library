@@ -25,4 +25,4 @@ mvn javadoc:aggregate
 * Search for a movie
 
 
-![](https://raw.githubusercontent.com/search.gif)
+![](https://gif.githubusercontent.com/search.gif)
