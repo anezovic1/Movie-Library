@@ -2,12 +2,14 @@ ba\unsa\etf\rpr\dao\WatchlistDao.class
 ba\unsa\etf\rpr\business\WatchlistManager.class
 ba\unsa\etf\rpr\controllers\SignUpController$2.class
 ba\unsa\etf\rpr\dao\MovieDao.class
+ba\unsa\etf\rpr\domain\Statistika.class
 ba\unsa\etf\rpr\dao\AdministratorDaoSQLImpl.class
 ba\unsa\etf\rpr\dao\MovieDaoSQLImpl.class
 ba\unsa\etf\rpr\controllers\HomeController.class
 ba\unsa\etf\rpr\domain\User.class
 ba\unsa\etf\rpr\App.class
 ba\unsa\etf\rpr\business\AdminManager.class
+ba\unsa\etf\rpr\controllers\StatistikaController$1.class
 ba\unsa\etf\rpr\dao\AdministratorDao.class
 ba\unsa\etf\rpr\controllers\SignUpController$3.class
 ba\unsa\etf\rpr\dao\DaoFactory.class
@@ -19,6 +21,7 @@ ba\unsa\etf\rpr\controllers\LogInController$1.class
 ba\unsa\etf\rpr\controllers\UserController.class
 ba\unsa\etf\rpr\controllers\SignUpController.class
 ba\unsa\etf\rpr\dao\WatchlistDaoSQLImpl.class
+ba\unsa\etf\rpr\controllers\StatistikaController.class
 ba\unsa\etf\rpr\exceptions\MovieException.class
 ba\unsa\etf\rpr\dao\UserDaoSQLImpl.class
 ba\unsa\etf\rpr\domain\Movie.class

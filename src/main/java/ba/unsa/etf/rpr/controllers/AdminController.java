@@ -15,9 +15,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Object;
@@ -52,12 +55,14 @@ public class AdminController {
     public Label adminNameLabel;
     public PasswordField fieldPassword;
 
+    public int brojac = 0;
+
     /**
      * Method that closes current window when cancel button is clicked.
      *
      * @param actionEvent
      */
-    public void cancelClick(ActionEvent actionEvent) {
+    public void cancelClick(ActionEvent actionEvent) throws MovieException {
         Stage stage = (Stage)cancelBtn.getScene().getWindow();
         stage.close();
     }
@@ -106,18 +111,41 @@ public class AdminController {
         }
     }
 
+    private int brojInt(List<Watchlist> sveWatchliste, int idFilma) throws MovieException {
+        //List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+        String moviesOfWatchlist = "";
+        int brojimFilmove = 0;
+
+        for(int i = 0; i < sveWatchliste.size(); i++) {
+            moviesOfWatchlist += sveWatchliste.get(i).getMovies() + ",";
+        }
+        String[] splittedMovies = moviesOfWatchlist.split(","); //1,2,3,4,5,2,3,
+        for(int i = 0; i < splittedMovies.length; i++) {
+            if(Integer.parseInt(splittedMovies[i]) == idFilma) {
+                brojimFilmove++;
+            }
+        }
+
+        System.out.println(moviesOfWatchlist);
+        return brojimFilmove;
+    }
     /**
      * This method is called when admin clicks on 'movies' button. It shows all movies that are in database.
      *
      * @param actionEvent
      */
+
     public void moviesBtnClick(ActionEvent actionEvent) throws MovieException {
         listView.getItems().clear();
+
         List<Movie> allMovies = FXCollections.observableList(movieManager.getAll());
+        List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+
         List<String> namesOfAllMovies = new ArrayList<>();
 
         for(int i = 0; i < allMovies.size(); i++) {
-            namesOfAllMovies.add(allMovies.get(i).getId() + ". " + allMovies.get(i).getName());
+            int brojFilmova = brojInt(allWatchlists, allMovies.get(i).getId());
+            namesOfAllMovies.add(allMovies.get(i).getId() + ". " + allMovies.get(i).getName() + ", " + brojFilmova);
         }
         listView.getItems().addAll(namesOfAllMovies);
     }
@@ -287,5 +315,17 @@ public class AdminController {
     public void logoutBtnClick(ActionEvent actionEvent) {
         Stage stage = (Stage)logoutBtn.getScene().getWindow();
         stage.close();
+    }
+
+    public void statistikaClick(ActionEvent actionEvent) throws IOException, MovieException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/statistika.fxml"));
+        Parent root = loader.load();
+        StatistikaController statistikaController = loader.getController();
+
+        stage.setTitle("Statistika");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 }

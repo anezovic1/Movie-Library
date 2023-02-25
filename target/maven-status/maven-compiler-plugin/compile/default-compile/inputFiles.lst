@@ -23,8 +23,10 @@ C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\controller
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\dao\AdministratorDao.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\dao\WatchlistDaoSQLImpl.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\domain\Idable.java
+C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\domain\Statistika.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\business\AdminManager.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\business\UserManager.java
+C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\controllers\StatistikaController.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\dao\AdministratorDaoSQLImpl.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\dao\MovieDao.java
 C:\Users\anida\IdeaProjects\RPR-project\src\main\java\ba\unsa\etf\rpr\dao\DaoFactory.java
