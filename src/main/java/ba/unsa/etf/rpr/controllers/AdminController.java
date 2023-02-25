@@ -111,8 +111,17 @@ public class AdminController {
         }
     }
 
+    /**
+     * This method is used for counting how many times every movie appears in watchlists.
+     *
+     * @param sveWatchliste
+     * @param idFilma
+     * @return
+     * @throws MovieException
+     */
     private int brojInt(List<Watchlist> sveWatchliste, int idFilma) throws MovieException {
-        //List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
+        /* Parametar je lista filmova da ne bih kroz svaku iteraciju for petlje vršila poziv na bazu! */
+
         String moviesOfWatchlist = "";
         int brojimFilmove = 0;
 

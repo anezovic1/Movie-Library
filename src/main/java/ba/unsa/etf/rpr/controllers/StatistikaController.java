@@ -21,6 +21,10 @@ public class StatistikaController {
     private WatchlistManager watchlistManager = new WatchlistManager();
     private MovieManager movieManager = new MovieManager();
 
+    /**
+     * This method allows as to print '+' if movie is in the specific watchlist. Otherwise, we print 'o'.
+     * @throws MovieException
+     */
     public void initialize() throws MovieException {
         List<Watchlist> allWatchlists = FXCollections.observableList(watchlistManager.getAll());
 
