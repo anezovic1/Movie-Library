@@ -22,8 +22,9 @@ mvn javadoc:aggregate
 
 ## Functionality
 
-* Search for a movie
+1. Search for a movie
 ![search](gif/search.gif)
+
 * Log in
 * Log in as admin
 * Sign up
