@@ -1,7 +1,0 @@
-#usersBtn, #moviesBtn, #addMovieBtn, #deleteMovieBtn, #deleteUserBtn, #logoutBtn {
-    -fx-background-color: #ffffff;
-}
-
-#usersBtn:hover, #moviesBtn:hover, #addMovieBtn:hover, #deleteMovieBtn:hover, #deleteUserBtn:hover, #logoutBtn:hover {
- -fx-background-color: #EAEFF2;
- }
