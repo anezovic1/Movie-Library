@@ -23,7 +23,7 @@ mvn javadoc:aggregate
 ## Functionality
 
 * Search for a movie
-  <img src="./gif/search.gif">
+  <img src="RPR-project/gif/search.gif" alt="search">
 
 * Log in
 * Log in as admin
