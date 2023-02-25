@@ -23,6 +23,12 @@ mvn javadoc:aggregate
 ## Functionality
 
 * Search for a movie
+  <img src="../gif/search.gif">
 
-<img src="../gif/search.gif">
+* Log in
+* Log in as admin
+* Sign up
+* Create watchlist
+
+
 
